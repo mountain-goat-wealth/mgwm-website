@@ -656,63 +656,22 @@
     }
 
     /* ── SHORTS ── */
-    #shorts {
+    #video {
       background: var(--off);
       padding: 60px 80px 100px;
     }
-    #shorts .eyebrow { margin-bottom: 12px; }
-    #shorts h2 {
+    #video .eyebrow { margin-bottom: 12px; }
+    #video h2 {
       font-family: 'Merriweather', serif;
       font-weight: 700;
       color: var(--black);
-      margin-bottom: 12px;
+      margin-bottom: 48px;
       font-size: clamp(24px, 3vw, 36px);
     }
-    #shorts .subtext {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      color: var(--mid);
-      font-size: 16px;
-      max-width: none;
-      margin-bottom: 48px;
-      line-height: 1.75;
-    }
 
-    .shorts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .video-embed {
       max-width: 900px;
       margin: 0 auto;
-    }
-    .short-card {
-      background: #fff;
-      border: 1px solid var(--gray);
-      border-top: 3px solid transparent;
-      transition: border-top-color 0.2s;
-      overflow: hidden;
-    }
-    .short-card:hover { border-top-color: var(--blue); }
-    .short-card a img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
-    }
-    .short-card-body { padding: 20px; }
-    .short-card-title {
-      font-family: 'Lato', sans-serif;
-      font-weight: 600;
-      color: var(--black);
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-    .short-card-desc {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      color: var(--mid);
-      font-size: 13px;
-      line-height: 1.65;
     }
     .shorts-more {
       text-align: center;
@@ -721,7 +680,7 @@
     .shorts-more a {
       color: var(--blue);
       font-family: 'Lato', sans-serif;
-      font-size: 14px;
+      font-size: 18px;
       text-decoration: none;
     }
     .shorts-more a:hover { text-decoration: underline; }
@@ -1861,8 +1820,7 @@
         grid-template-columns: 1fr;
       }
 
-      #shorts { padding: 60px 24px; }
-      .shorts-grid { grid-template-columns: 1fr; }
+      #video { padding: 60px 24px; }
 
       #services { padding: 60px 24px; }
       .services-grid { grid-template-columns: 1fr; }
@@ -1918,7 +1876,7 @@
         padding: 0.4rem 0.75rem;
       }
 
-      section, #diagnostic, #story, #team, #peer, #shorts, #services,
+      section, #diagnostic, #story, #team, #peer, #video, #services,
       #callbreak, #process, #testimonials, #faq, #leadmagnet, #cta {
         padding-left: 24px;
         padding-right: 24px;
@@ -2149,6 +2107,26 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
         <span class="proof-stat">20+ yrs</span>
         <span class="proof-label">Combined Experience</span>
       </div>
+    </div>
+  </section>
+
+  <!-- ── SHORTS ── -->
+  <div id="trail-advice" style="position:relative;top:-96px;visibility:hidden;height:0;"></div>
+  <section id="video">
+    <div class="eyebrow reveal">Trail Advice</div>
+    <h2 class="reveal d1">See Our Collection of Videos</h2>
+    <div class="video-embed reveal d1">
+      <iframe
+        src="https://www.youtube.com/embed/wPnhSrGq5mE"
+        width="100%"
+        style="display:block;border:none;width:100%;aspect-ratio:16/9;"
+        allow="clipboard-write; encrypted-media; picture-in-picture"
+        allowfullscreen
+        title="Trail Advice from the Mountain Goats">
+      </iframe>
+    </div>
+    <div class="shorts-more reveal">
+      <a href="https://www.youtube.com/@MountainGoatWM" target="_blank" rel="noopener noreferrer">View More Videos on YouTube →</a>
     </div>
   </section>
 
@@ -2443,61 +2421,6 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
         <span class="lm-ig-success" id="lm-ig-success">✓ Check your inbox — it's on its way.</span>
         <span class="lm-ig-fine">We'll also send occasional retirement tips and insights. Unsubscribe anytime.</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ── SHORTS ── -->
-  <div id="trail-advice" style="position:relative;top:-96px;visibility:hidden;height:0;"></div>
-  <section id="shorts">
-    <div class="eyebrow reveal">Quick Takes</div>
-    <h2 class="reveal d1">Trail Advice from the Mountain Goats</h2>
-    <p class="subtext reveal d2">Real answers to the questions real people are asking about retirement and investing.</p>
-    <div class="shorts-grid">
-      <div class="short-card reveal">
-        <iframe
-          src="https://www.youtube.com/embed/TlHRNgxb7oA?autoplay=1&mute=1&loop=1&playlist=TlHRNgxb7oA&controls=1"
-          width="100%"
-          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
-          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
-          allowfullscreen
-          title="What Is an Income Structured Note?">
-        </iframe>
-        <div class="short-card-body">
-          <div class="short-card-title">What Is an Income Structured Note?</div>
-          <div class="short-card-desc">A plain-language breakdown of one of the most powerful income tools available to investors today.</div>
-        </div>
-      </div>
-      <div class="short-card reveal d1">
-        <iframe
-          src="https://www.youtube.com/embed/j82s-zIePt0?autoplay=1&mute=1&loop=1&playlist=j82s-zIePt0&controls=1"
-          width="100%"
-          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
-          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
-          allowfullscreen
-          title="Is Your Old 401k Just Sitting There?">
-        </iframe>
-        <div class="short-card-body">
-          <div class="short-card-title">Is Your Old 401(k) Just Sitting There?</div>
-          <div class="short-card-desc">How to find lost retirement accounts from past employers and what to do next.</div>
-        </div>
-      </div>
-      <div class="short-card reveal d2">
-        <iframe
-          src="https://www.youtube.com/embed/PcwhxTgVnxI?autoplay=1&mute=1&loop=1&playlist=PcwhxTgVnxI&controls=1"
-          width="100%"
-          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
-          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
-          allowfullscreen
-          title="5 Ways to Invest for Income">
-        </iframe>
-        <div class="short-card-body">
-          <div class="short-card-title">5 Ways to Invest for Income</div>
-          <div class="short-card-desc">Practical strategies designed to generate reliable cash flow from your portfolio.</div>
-        </div>
-      </div>
-    </div>
-    <div class="shorts-more reveal">
-      <a href="https://www.youtube.com/@MountainGoatWM" target="_blank" rel="noopener noreferrer">View All Videos on YouTube →</a>
     </div>
   </section>
 
