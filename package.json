@@ -1,0 +1,12 @@
+{
+  "name": "mgwm-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

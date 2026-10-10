@@ -27,7 +27,7 @@
       margin-bottom: 0;
       padding-bottom: 0;
     }
-    img { max-width: 100%; display: block; }
+    img { max-width: 100%; display: block; height: auto; }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
 
@@ -57,6 +57,13 @@
     .reveal.d2 { transition-delay: 0.2s; }
     .reveal.d3 { transition-delay: 0.3s; }
     .reveal.d4 { transition-delay: 0.4s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal.in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
 
     /* ── Pulse animation ── */
     @keyframes pulse {
@@ -687,7 +694,7 @@
 
     /* ── SERVICES ── */
     #services {
-      background: linear-gradient(rgba(28,28,28,0.88), rgba(28,28,28,0.88)), url('assets/images/mountain.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(28,28,28,0.88), rgba(28,28,28,0.88)), url('assets/images/mountain.webp') center/cover no-repeat;
       padding: 100px 80px;
       text-align: center;
     }
@@ -979,7 +986,7 @@
 
     /* ── TESTIMONIALS ── */
     #testimonials {
-      background-image: url('assets/images/happy-hikers.jpg');
+      background-image: url('assets/images/happy-hikers.webp');
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -1529,7 +1536,7 @@
     #cta {
       background:
         linear-gradient(rgba(0,126,167,0.88), rgba(0,95,125,0.92)),
-        url('assets/images/summit-is-close.jpg') center/cover no-repeat;
+        url('assets/images/summit-is-close.webp') center/cover no-repeat;
       padding: 140px 80px;
       text-align: center;
       position: relative;
@@ -1915,11 +1922,26 @@
         gap: 1.25rem;
         text-align: center;
       }
+
+      /* Hero — fit CTA within first viewport on small phones */
+      .hero-left { padding-top: 32px; }
+      .hero-left h1 {
+        font-size: clamp(30px, 8.5vw, 38px);
+        margin-bottom: 14px;
+      }
+      .hero-sub { font-size: 15px; }
     }
 
     /* ── STICKY BAR COLLAPSE/EXPAND ── */
     #sticky-bar {
       transition: opacity 0.2s ease, transform 0.2s ease;
+      /* start hidden — JS reveals after hero scrolls out */
+      opacity: 0;
+      pointer-events: none;
+    }
+    #sticky-bar.bar-shown {
+      opacity: 1;
+      pointer-events: all;
     }
     #sticky-bar.bar-collapsed {
       opacity: 0 !important;
@@ -1966,6 +1988,7 @@
       pointer-events: all;
     }
   </style>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBS25MC1MY"></script>
 <script>
@@ -2049,23 +2072,23 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
   <section id="hero">
     <div class="hero-grid">
     <div class="hero-left">
-      <div class="eyebrow reveal">
+      <div class="eyebrow">
         Fiduciary Wealth Advisors
       </div>
-      <h1 class="reveal d1">
+      <h1>
         Every great climb<br>
         needs a guide who<br>
         knows <em>the route</em>.
       </h1>
-      <p class="hero-sub reveal d2">
+      <p class="hero-sub">
         Mountain Goat Wealth Management is a wealth management firm guiding families through the financial climb to retirement. Founded by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
       </p>
       <p class="hero-targeting">Built for professionals and pre-retirees ready to conquer their climb to retirement.</p>
-      <div class="hero-ctas reveal d3">
+      <div class="hero-ctas">
         <a href="https://calendar.google.com/appointments/schedules/AcZssZ2Itumu0vPe5NK-IMBgrQzZ22fO5GTi4Pp586J3Oe1Z0fZnhYVGNEHZu7pe5gnml8M1oyR7J0aP" target="_blank" rel="noopener noreferrer" class="btn-primary">Book Your 30-Minute Discovery Call →</a>
         <a href="#callbreak" class="btn-ghost">How it works</a>
       </div>
-      <div class="hero-meta reveal d4">
+      <div class="hero-meta">
         <div class="hero-meta-item">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M2 7l3.5 3.5L12 3.5" stroke="#007ea7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2087,7 +2110,7 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
       </div>
     </div>
     <div class="hero-right">
-      <img src="assets/images/climber-hero-3.png" alt="Mountain climber on trail" />
+      <img src="assets/images/climber-hero-3.webp" alt="Mountain climber on trail" width="1920" height="1791" fetchpriority="high" />
     </div>
     </div><!-- /.hero-grid -->
     <div class="hero-proof">
@@ -2220,13 +2243,13 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
   <section id="story">
     <div class="story-img-col reveal">
       <div class="story-trail-wrap">
-        <img src="assets/images/millcreek-overlook.jpg" alt="Millcreek Canyon overlook" class="story-main-img" />
+        <img src="assets/images/millcreek-overlook.webp" alt="Millcreek Canyon overlook" class="story-main-img" width="1440" height="1080" loading="lazy" decoding="async" />
         <div class="story-pullquote">
           <blockquote>"At the overlook, staring down at the valley, it just clicked. These are the people we want to help."</blockquote>
           <cite>— Bobby Goodman, Millcreek Canyon, Spring 2024</cite>
         </div>
       </div>
-      <img src="assets/images/mountain-goat.png" alt="Mountain goat on rocky terrain" style="width:100%;margin-top:50px;object-fit:cover;display:block;" />
+      <img src="assets/images/mountain-goat.webp" alt="Mountain goat on rocky terrain" style="width:100%;margin-top:50px;object-fit:cover;display:block;" width="1600" height="1543" loading="lazy" decoding="async" />
     </div>
     <div class="story-text-col">
       <div class="eyebrow reveal">The Mountain Goat Story</div>
@@ -2302,8 +2325,9 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
           <!-- Bobby -->
           <div style="display: flex;
             align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-bobby.png"
+            <img src="assets/images/headshot-bobby.webp"
               alt="Bobby Goodman"
+              width="56" height="56" loading="lazy" decoding="async"
               style="width: 56px; height: 56px;
                 border-radius: 50%;
                 object-fit: cover;
@@ -2332,8 +2356,9 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
           <!-- Cade -->
           <div style="display: flex;
             align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-cade.png"
+            <img src="assets/images/headshot-cade.webp"
               alt="Cade Hyde"
+              width="56" height="56" loading="lazy" decoding="async"
               style="width: 56px; height: 56px;
                 border-radius: 50%;
                 object-fit: cover;
@@ -2362,8 +2387,9 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
           <!-- Michael -->
           <div style="display: flex;
             align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-michael.png"
+            <img src="assets/images/headshot-michael.webp"
               alt="Michael Goodman"
+              width="56" height="56" loading="lazy" decoding="async"
               style="width: 56px; height: 56px;
                 border-radius: 50%;
                 object-fit: cover;
@@ -2391,7 +2417,7 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
 
         </div>
 
-        <a href="about.html"
+        <a href="/about"
           style="display: inline-block;
             margin-top: 20px;
             font-family: Lato, sans-serif;
@@ -2411,7 +2437,7 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
         <div class="lm-ig-headline">The 9-Step Mountain Goat Climb to Retirement</div>
         <p class="lm-ig-desc">Our proprietary framework for conquering your climb to retirement.</p>
       </div>
-      <img src="assets/images/9-step-mountain-goat-climb-to-retirement.png" alt="The 9-Step Mountain Goat Climb to Retirement infographic preview" class="lm-ig-thumb" />
+      <img src="assets/images/9-step-mountain-goat-climb-to-retirement.webp" alt="The 9-Step Mountain Goat Climb to Retirement infographic preview" class="lm-ig-thumb" width="240" height="180" loading="lazy" decoding="async" />
       <div class="lm-ig-form-wrap">
         <div class="lm-ig-inline-form" id="lm-ig-form-row">
           <input type="email" class="lm-ig-email" id="lm-ig-email" placeholder="Your email address" />
@@ -2748,7 +2774,7 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
       <div class="lm-card-preview reveal d1">
         <div class="lm-preview-inner">
           <div class="lm-mockup-frame">
-            <img src="assets/images/assessment-preview.png" alt="Retirement Self-Assessment summary screen" class="lm-mockup-img" />
+            <img src="assets/images/assessment-preview.webp" alt="Retirement Self-Assessment summary screen" class="lm-mockup-img" width="690" height="1134" loading="lazy" decoding="async" />
           </div>
           <p class="lm-preview-caption">See exactly where you stand in 10 minutes.</p>
         </div>
@@ -2810,9 +2836,9 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <a href="about.html">About Us</a>
+        <a href="/about">About Us</a>
         <a href="#leadmagnet">Self-Assessment</a>
-        <a href="legal.html">Legal Disclosures</a>
+        <a href="/legal">Legal Disclosures</a>
       </div>
       <div class="footer-col">
         <h5>Get In Touch</h5>
@@ -2855,21 +2881,6 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
   max-width: 220px;
 ">
   <button id="sticky-bar-close" class="sticky-bar-close" aria-label="Close">×</button>
-  <div style="display:flex; align-items:center; gap:0.5rem;">
-    <span style="
-      width: 8px;
-      height: 8px;
-      background: #4caf50;
-      border-radius: 50%;
-      flex-shrink: 0;
-    "></span>
-    <span style="
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.8);
-      font-family: Lato, sans-serif;
-    ">Next slot available · No cost</span>
-  </div>
-
   <a href="https://calendar.google.com/appointments/schedules/AcZssZ2Itumu0vPe5NK-IMBgrQzZ22fO5GTi4Pp586J3Oe1Z0fZnhYVGNEHZu7pe5gnml8M1oyR7J0aP" target="_blank" rel="noopener noreferrer" style="
     background: white;
     color: #007ea7;
@@ -2981,12 +2992,6 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
         if (!isOpen) row.classList.add('open');
       });
     });
-
-    // ── Sticky book button ──
-    const stickyBook = document.getElementById('sticky-book');
-    window.addEventListener('scroll', () => {
-      stickyBook.classList.toggle('visible', window.scrollY > 800);
-    }, { passive: true });
 
     // ── Video lightbox ──
     function openLightbox(videoId) {
@@ -3253,48 +3258,55 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
   </script>
 
   <script>
-    // ── Sticky bar collapse/expand ──
+    // ── Sticky bar — shown after hero scrolls out; dismissed for session ──
     (function () {
-      var BAR_KEY = 'mgwm_bar_state';
-      var bar = document.getElementById('sticky-bar');
-      var circle = document.getElementById('sticky-bar-collapsed');
+      var bar      = document.getElementById('sticky-bar');
+      var circle   = document.getElementById('sticky-bar-collapsed');
       var closeBtn = document.getElementById('sticky-bar-close');
+      var hero     = document.getElementById('hero');
 
-      function applyState(state, animate) {
-        if (state === 'collapsed') {
-          if (animate) {
-            bar.classList.add('bar-collapsed');
-            setTimeout(function () {
-              circle.classList.add('bar-visible');
-            }, 200);
-          } else {
-            bar.classList.add('bar-collapsed');
-            circle.classList.add('bar-visible');
-          }
-        } else {
-          if (animate) {
-            circle.classList.remove('bar-visible');
-            setTimeout(function () {
-              bar.classList.remove('bar-collapsed');
-            }, 150);
-          } else {
-            bar.classList.remove('bar-collapsed');
-            circle.classList.remove('bar-visible');
-          }
-        }
-        sessionStorage.setItem(BAR_KEY, state);
+      var DISMISS_KEY = 'mgwm_bar_dismissed';
+
+      function ssGet(k) {
+        try { return sessionStorage.getItem(k); } catch (e) { return null; }
+      }
+      function ssSet(k, v) {
+        try { sessionStorage.setItem(k, v); } catch (e) {}
       }
 
-      // Apply initial state immediately — no flash
-      var initialState = sessionStorage.getItem(BAR_KEY) || 'expanded';
-      applyState(initialState, false);
+      var dismissed = ssGet(DISMISS_KEY) === '1';
 
+      // Reveal bar when hero leaves the viewport; hide again if it re-enters.
+      var heroObserver = new IntersectionObserver(function (entries) {
+        var heroGone = !entries[0].isIntersecting;
+        if (heroGone && !dismissed) {
+          bar.classList.add('bar-shown');
+          bar.classList.remove('bar-collapsed');
+          circle.classList.remove('bar-visible');
+        } else if (!heroGone) {
+          bar.classList.remove('bar-shown');
+          circle.classList.remove('bar-visible');
+        }
+      }, { threshold: 0 });
+      heroObserver.observe(hero);
+
+      // Close = dismiss for this session (hides bar and circle).
       closeBtn.addEventListener('click', function () {
-        applyState('collapsed', true);
+        dismissed = true;
+        ssSet(DISMISS_KEY, '1');
+        bar.classList.add('bar-collapsed');
+        setTimeout(function () {
+          bar.classList.remove('bar-shown');
+          circle.classList.remove('bar-visible');
+        }, 220);
       });
 
+      // Circle = re-expand (for users who only collapsed, not dismissed).
       circle.addEventListener('click', function () {
-        applyState('expanded', true);
+        circle.classList.remove('bar-visible');
+        setTimeout(function () {
+          bar.classList.remove('bar-collapsed');
+        }, 150);
       });
     })();
 
