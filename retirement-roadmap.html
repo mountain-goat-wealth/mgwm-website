@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Complimentary Retirement Roadmap — Mountain Goat Wealth Management</title>
+  <meta name="description" content="Two conversations with Bobby Goodman, CFP®. Walk away with a written retirement roadmap — at no cost and no obligation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBS25MC1MY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZBS25MC1MY');
+  </script>
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17654251323"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17654251323');
+  </script>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1634340074520455');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1" /></noscript>
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #1c1c1c;
+      background: #fff;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ── CSS Variables ── */
+    :root {
+      --black: #1c1c1c;
+      --blue:  #007ea7;
+      --blue-dk: #005f7d;
+      --mist:  #e6f4f9;
+      --bedrock: #998b7d;
+      --mid:   #555555;
+      --lt:    #999999;
+      --gray:  #e8e8e8;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; }
+    .reveal.d2 { transition-delay: 0.2s; }
+    .reveal.d3 { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal.in { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    /* ── LP Header ── */
+    #lp-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--gray);
+      padding: 12px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .lp-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .lp-brand img { height: 40px; }
+    .lp-brand-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .lp-header-phone {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .lp-header-phone:hover { color: var(--blue-dk); }
+
+    /* ── LP Hero ── */
+    #lp-hero {
+      background: var(--mist);
+      padding-top: 64px; /* clears fixed header */
+    }
+    .lp-hero-inner {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      align-items: start; /* left column (copy + form) sets the hero height */
+    }
+    .lp-hero-left {
+      padding: 24px 48px 32px 60px;
+    }
+    .lp-hero-left .eyebrow { margin-bottom: 8px; }
+    .lp-hero-left h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .lp-hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.55;
+      max-width: 600px;
+      margin-bottom: 18px;
+    }
+
+    /* ── Form Card ── */
+    #lp-form-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 28px 32px;
+    }
+    .lp-step { display: none; }
+    .lp-step.active { display: block; }
+
+    .lp-step-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .lp-step-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--lt);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .lp-step-back {
+      font-size: 13px;
+      color: var(--blue);
+      background: none; border: none;
+      padding: 0; cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .lp-field { margin-bottom: 10px; }
+    .lp-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 5px;
+    }
+    .lp-field input,
+    .lp-field select {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid var(--gray);
+      padding: 0 14px;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      color: var(--black);
+      background: #fff;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s;
+    }
+    .lp-field input:focus,
+    .lp-field select:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .lp-field input.error,
+    .lp-field select.error { border-color: #d94040; }
+    .lp-field-error {
+      font-size: 12px;
+      color: #d94040;
+      margin-top: 3px;
+      display: none;
+    }
+    .lp-field-error.visible { display: block; }
+
+    .lp-select-wrap { position: relative; }
+    .lp-select-wrap::after {
+      content: '▾';
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--lt); pointer-events: none; font-size: 14px;
+    }
+
+    /* Honeypot — invisible to humans */
+    .lp-hp { position: absolute; left: -9999px; opacity: 0; height: 1px; }
+
+    .lp-submit-btn {
+      width: 100%;
+      height: 50px;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .lp-submit-btn:hover:not(:disabled) { background: var(--blue-dk); }
+    .lp-submit-btn:disabled { opacity: 0.6; cursor: default; }
+
+    .lp-fine {
+      font-size: 12px;
+      color: var(--lt);
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+    .lp-fine a { color: var(--blue); text-decoration: underline; }
+
+    .lp-form-error {
+      background: #fff0f0;
+      border: 1px solid #d94040;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #d94040;
+      margin-top: 12px;
+      display: none;
+    }
+    .lp-form-error.visible { display: block; }
+
+    /* ── Hero Right (photo) ── */
+    .lp-hero-right {
+      padding: 32px 60px 32px 12px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .lp-hero-right img {
+      width: 100%; max-width: 420px;
+      aspect-ratio: 4 / 5; height: auto;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(28,28,28,0.12), 0 2px 6px rgba(28,28,28,0.08);
+    }
+    .lp-hero-caption {
+      width: 100%; max-width: 420px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--mid);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    /* ── Section shared ── */
+    .lp-section {
+      padding: 72px 60px;
+    }
+    .lp-section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .lp-section h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 40px;
+    }
+    .lp-section-mist { background: var(--mist); }
+    .lp-section-white { background: #fff; }
+
+    /* ── What You'll Get ── */
+    .lp-what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .lp-what-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #fff;
+      padding: 22px 24px;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .lp-what-icon {
+      width: 24px; height: 24px; flex-shrink: 0;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .lp-what-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.45;
+    }
+
+    /* ── How It Works ── */
+    .lp-how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .lp-step-card {
+      background: var(--mist);
+      padding: 32px 28px;
+      position: relative;
+    }
+    .lp-step-num {
+      font-family: 'Merriweather', serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: rgba(0,126,167,0.18);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .lp-step-title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .lp-step-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ── Note from Bobby ── */
+    #lp-note {
+      background: #fff;
+      padding: 72px 60px;
+    }
+    .lp-note-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .lp-note-photo {
+      position: relative;
+    }
+    .lp-note-photo img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center top;
+      aspect-ratio: 2/3;
+    }
+    .lp-note-text { padding-top: 8px; }
+    .lp-note-text .eyebrow { margin-bottom: 12px; }
+    .lp-note-text p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .lp-note-sig {
+      font-family: 'Merriweather', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--black);
+      margin-top: 20px;
+    }
+
+    /* ── Reviews ── */
+    .lp-reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .lp-review-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 28px;
+    }
+    .lp-review-stars { color: #f5a623; font-size: 18px; margin-bottom: 12px; }
+    .lp-review-quote {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .lp-review-name { font-weight: 700; font-size: 14px; color: var(--black); }
+    .lp-review-role { font-size: 13px; color: var(--lt); }
+    .lp-testi-disclaimer {
+      font-size: 12px;
+      color: var(--lt);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ── */
+    .lp-faq-list { max-width: 720px; }
+    details {
+      border-bottom: 1px solid var(--gray);
+    }
+    details:first-of-type { border-top: 1px solid var(--gray); }
+    summary {
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--black);
+      padding: 18px 0;
+      cursor: pointer;
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--blue);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    details[open] summary::after { content: '−'; }
+    .lp-faq-answer {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.75;
+      padding-bottom: 20px;
+      max-width: 640px;
+    }
+
+    /* ── Closing CTA ── */
+    #lp-cta {
+      background: var(--blue);
+      padding: 64px 60px;
+      text-align: center;
+    }
+    #lp-cta h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.5vw, 32px);
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .lp-cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--blue);
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .lp-cta-btn:hover { background: var(--mist); }
+
+    /* ── Footer ── */
+    #lp-footer {
+      background: var(--black);
+      padding: 32px 60px 24px;
+    }
+    .lp-footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 24px;
+    }
+    .lp-footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .lp-footer-ria {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .lp-footer-phone {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .lp-footer-legal {
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      text-decoration: underline;
+    }
+    .lp-footer-legal:hover { color: rgba(255,255,255,0.7); }
+    .lp-footer-compliance p {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 899px) {
+      .lp-hero-inner { grid-template-columns: 1fr; }
+      /* On mobile: photo card goes BELOW form */
+      .lp-hero-left { order: 1; padding: 32px 24px; }
+      .lp-hero-right { order: 2; padding: 0 24px 40px; }
+      .lp-hero-right img,
+      .lp-hero-caption { max-width: 320px; }
+    }
+    @media (max-width: 960px) {
+      .lp-how-grid { grid-template-columns: 1fr; }
+      .lp-note-inner { grid-template-columns: 1fr; }
+      .lp-note-photo { max-width: 240px; }
+      .lp-reviews-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      #lp-header { padding: 12px 20px; }
+      .lp-brand-name { display: none; }
+      .lp-section { padding: 48px 24px; }
+      #lp-note { padding: 48px 24px; }
+      #lp-cta { padding: 48px 24px; }
+      #lp-footer { padding: 28px 20px 20px; }
+      .lp-what-grid { grid-template-columns: 1fr; }
+      .lp-hero-left { padding: 28px 20px; }
+      .lp-hero-right { padding: 0 20px 36px; }
+      #lp-form-card { padding: 22px 20px; }
+    }
+  </style>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="lp-header">
+    <a href="/" class="lp-brand">
+      <img src="/assets/images/logo-badge.svg" alt="Mountain Goat Wealth Management" />
+      <span class="lp-brand-name">Mountain Goat<br>Wealth Management</span>
+    </a>
+    <a href="tel:3853476776" class="lp-header-phone">(385) 347-6776</a>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section id="lp-hero">
+    <div class="lp-hero-inner">
+
+      <!-- Left: copy + form -->
+      <div class="lp-hero-left">
+        <div class="eyebrow">Complimentary Retirement Roadmap</div>
+
+        <h1 id="lp-h1">Get a personalized retirement roadmap — complimentary.</h1>
+        <!-- Dynamic headline — set immediately to prevent any flash -->
+        <script>
+          (function () {
+            /* ── Allowed headline map — never insert raw URL values ── */
+            var HEADLINES = {
+              default:    'Get a personalized retirement roadmap — complimentary.',
+              advisor:    'Looking for a financial advisor you can actually talk to?',
+              retirement: 'See where you stand on the road to retirement.',
+              wealth:     'Wealth management built for families, not Wall Street.',
+              fiduciary:  'A fiduciary advisor who’s on your side of the table.'
+            };
+            var t = new URLSearchParams(window.location.search).get('t') || 'default';
+            var h = HEADLINES[t] || HEADLINES['default'];
+            document.getElementById('lp-h1').textContent = h;
+          })();
+        </script>
+
+        <p class="lp-hero-sub">Two conversations with Bobby Goodman, CFP&reg;, who spent 18 years at Goldman Sachs Private Wealth Management. You'll leave with a written roadmap for your retirement — at no cost and with no obligation to become a client.</p>
+
+        <!-- ── FORM ── -->
+        <div id="lp-form-card">
+
+          <!-- Honeypot — bots fill this, humans don't -->
+          <div class="lp-hp" aria-hidden="true">
+            <label for="lp-hp-field">Website</label>
+            <input type="text" id="lp-hp-field" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- Hidden UTM + meta fields (populated by JS) -->
+          <input type="hidden" id="hf-t"            name="t" />
+          <input type="hidden" id="hf-utm_source"   name="utm_source" />
+          <input type="hidden" id="hf-utm_medium"   name="utm_medium" />
+          <input type="hidden" id="hf-utm_campaign" name="utm_campaign" />
+          <input type="hidden" id="hf-utm_term"     name="utm_term" />
+          <input type="hidden" id="hf-gclid"        name="gclid" />
+          <input type="hidden" id="hf-page_url"     name="page_url" />
+
+          <!-- Step 1: Contact -->
+          <div id="lp-s1" class="lp-step active">
+            <div class="lp-step-bar">
+              <span class="lp-step-label">Step 1 of 2</span>
+            </div>
+            <div class="lp-field">
+              <label for="lp-firstname">First Name</label>
+              <input type="text" id="lp-firstname" name="firstname"
+                     autocomplete="given-name" placeholder="Bobby" required aria-required="true" />
+              <div class="lp-field-error" id="err-firstname">Please enter your first name.</div>
+            </div>
+            <div class="lp-field">
+              <label for="lp-email">Email Address</label>
+              <input type="email" id="lp-email" name="email"
+                     autocomplete="email" placeholder="you@example.com" required aria-required="true" />
+              <div class="lp-field-error" id="err-email">Please enter a valid email address.</div>
+            </div>
+            <div class="lp-field">
+              <label for="lp-phone">Phone Number</label>
+              <input type="tel" id="lp-phone" name="phone"
+                     autocomplete="tel" placeholder="(385) 555-0100" required aria-required="true" />
+              <div class="lp-field-error" id="err-phone">Please enter a valid phone number.</div>
+            </div>
+            <button type="button" class="lp-submit-btn" id="lp-btn-next">Next &rarr;</button>
+          </div>
+
+          <!-- Step 2: Situation -->
+          <div id="lp-s2" class="lp-step">
+            <div class="lp-step-bar">
+              <span class="lp-step-label">Step 2 of 2</span>
+              <button type="button" class="lp-step-back" id="lp-btn-back">&larr; Back</button>
+            </div>
+            <div class="lp-field">
+              <label for="lp-state">State</label>
+              <div class="lp-select-wrap">
+                <select id="lp-state" name="state" required aria-required="true">
+                  <option value="">Select your state</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Wyoming">Wyoming</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="lp-field-error" id="err-state">Please select your state.</div>
+            </div>
+            <div class="lp-field">
+              <label for="lp-age">Your Age</label>
+              <div class="lp-select-wrap">
+                <select id="lp-age" name="age_range" required aria-required="true">
+                  <option value="">Select your age range</option>
+                  <option value="Under 40">Under 40</option>
+                  <option value="40-49">40–49</option>
+                  <option value="50-59">50–59</option>
+                  <option value="60+">60+</option>
+                </select>
+              </div>
+              <div class="lp-field-error" id="err-age">Please select your age range.</div>
+            </div>
+            <div class="lp-field">
+              <label for="lp-retire">When are you hoping to retire?</label>
+              <div class="lp-select-wrap">
+                <select id="lp-retire" name="retire_timeline" required aria-required="true">
+                  <option value="">Select a timeline</option>
+                  <option value="Already retired">Already retired</option>
+                  <option value="Within 5 years">Within 5 years</option>
+                  <option value="5-10 years">5–10 years</option>
+                  <option value="10+ years">10+ years</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
+              </div>
+              <div class="lp-field-error" id="err-retire">Please select a retirement timeline.</div>
+            </div>
+            <button type="button" class="lp-submit-btn" id="lp-btn-submit">Request My Roadmap &rarr;</button>
+            <div class="lp-form-error" id="lp-form-error" role="alert">
+              Something went wrong. Please call us at <a href="tel:3853476776">(385) 347-6776</a>.
+            </div>
+          </div>
+
+          <p class="lp-fine">
+            By submitting, you agree we may contact you by phone or email about your roadmap.
+            We'll also send occasional retirement tips — unsubscribe anytime.
+            <a href="/legal">Disclosures</a>
+          </p>
+        </div>
+        <!-- end #lp-form-card -->
+      </div>
+      <!-- end .lp-hero-left -->
+
+      <!-- Right: Bobby photo -->
+      <div class="lp-hero-right">
+        <!--
+          TODO: Replace with bobby-hero.webp once photos are added to _image-originals/bobby/.
+          Run `npm run images` to regenerate the optimized version (target: ≤ 1200px wide).
+        -->
+        <img src="/assets/images/headshot-bobby.webp"
+             alt="Bobby Goodman, CFP® — Founder of Mountain Goat Wealth Management"
+             width="640" height="1212"
+             fetchpriority="high" decoding="async" />
+        <div class="lp-hero-caption">
+          Bobby Goodman, CFP&reg; &nbsp;&middot;&nbsp; Founder &nbsp;&middot;&nbsp; 18 years at Goldman Sachs Private Wealth Management
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- end #lp-hero -->
+
+  <!-- ── WHAT YOU'LL GET ── -->
+  <section class="lp-section lp-section-white">
+    <div class="lp-section-inner">
+      <div class="eyebrow reveal">What You'll Leave With</div>
+      <h2 class="reveal">Your roadmap covers four things.</h2>
+      <!-- TODO Bobby: confirm these match the simplified roadmap deliverable -->
+      <div class="lp-what-grid">
+        <div class="lp-what-item reveal">
+          <div class="lp-what-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="lp-what-text">Where you stand: are you on track to retire when you want?</span>
+        </div>
+        <div class="lp-what-item reveal d1">
+          <div class="lp-what-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="lp-what-text">A Social Security timing strategy</span>
+        </div>
+        <div class="lp-what-item reveal d2">
+          <div class="lp-what-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="lp-what-text">A tax-aware approach to drawing income in retirement</span>
+        </div>
+        <div class="lp-what-item reveal d3">
+          <div class="lp-what-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="lp-what-text">Your next steps, in writing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="lp-section lp-section-mist">
+    <div class="lp-section-inner">
+      <div class="eyebrow reveal">The Process</div>
+      <h2 class="reveal">Three steps. Two meetings. One written plan.</h2>
+      <div class="lp-how-grid">
+        <div class="lp-step-card reveal">
+          <div class="lp-step-num">1</div>
+          <div class="lp-step-title">Request your roadmap</div>
+          <p class="lp-step-desc">Takes two minutes. We'll reach out within one business day.</p>
+        </div>
+        <div class="lp-step-card reveal d1">
+          <div class="lp-step-num">2</div>
+          <div class="lp-step-title">Meeting 1 &middot; Video call</div>
+          <p class="lp-step-desc">We learn where you are and where you want to go. You'll sign a short planning agreement. There's no fee.</p>
+        </div>
+        <div class="lp-step-card reveal d2">
+          <div class="lp-step-num">3</div>
+          <div class="lp-step-title">Meeting 2 &middot; Video call</div>
+          <p class="lp-step-desc">We walk you through your written roadmap. Then you decide: run with it on your own, or have us help.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A NOTE FROM BOBBY ── -->
+  <section id="lp-note">
+    <div class="lp-note-inner">
+      <div class="lp-note-photo reveal">
+        <!-- TODO: replace with a candid Bobby photo from _image-originals/bobby/ -->
+        <img src="/assets/images/headshot-bobby.webp"
+             alt="Bobby Goodman, CFP®"
+             width="640" height="954"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="lp-note-text reveal d1">
+        <div class="eyebrow">A Note from Bobby</div>
+        <!-- TODO Bobby: review and edit in your own words before publishing -->
+        <p>For 18 years I worked in Private Wealth Management at Goldman Sachs — one of the best jobs in finance. But somewhere along the way I realized I was spending all that expertise helping people who needed it least.</p>
+        <p>On a trail run through Millcreek Canyon in 2024, it clicked. I left to build the firm I always wished existed: one that brings Wall Street-quality guidance to working families preparing for retirement, without the minimums, the jargon, or the runaround.</p>
+        <p>The Retirement Roadmap is how I start every conversation. Two meetings, a written plan, no fee. If it's useful on its own, great. If you want help putting it into action, we'll have that conversation after.</p>
+        <div class="lp-note-sig">— Bobby</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section class="lp-section lp-section-mist">
+    <div class="lp-section-inner">
+      <div class="eyebrow reveal">Client Reviews</div>
+      <h2 class="reveal">What our clients say.</h2>
+      <div class="lp-reviews-grid">
+        <div class="lp-review-card reveal">
+          <div class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="lp-review-quote">"Bobby is the best. The approach is robust, and it's obvious my best interests are the priority. My only regret is not getting started earlier."</p>
+          <div class="lp-review-name">Karina L.</div>
+          <div class="lp-review-role">Business Development Representative</div>
+        </div>
+        <div class="lp-review-card reveal d1">
+          <div class="lp-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="lp-review-quote">"They are not pushy. I have never felt like they are trying to sell me anything. Responses are always timely and they listen."</p>
+          <div class="lp-review-name">Jason D.</div>
+          <div class="lp-review-role">Product Manager</div>
+        </div>
+      </div>
+      <p class="lp-testi-disclaimer">The testimonial(s) presented herein are provided by clients of Mountain Goat Wealth Management LLC. These clients have not been compensated, directly or indirectly, for their testimonial or endorsement of Mountain Goat Wealth Management LLC or its services. The experiences and opinions expressed in the testimonials are those of the individual clients and may not be representative of the experiences of all clients. There is no guarantee that all clients will have similar experiences or results. Testimonials are not indicative of future performance or success. Past performance is not a guarantee of future results. Investing involves risk, including the potential loss of principal.</p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="lp-section lp-section-white">
+    <div class="lp-section-inner">
+      <div class="eyebrow reveal">Common Questions</div>
+      <h2 class="reveal">What people ask before they request a roadmap.</h2>
+      <div class="lp-faq-list">
+        <details>
+          <summary>Is it really complimentary?</summary>
+          <p class="lp-faq-answer">Yes. The roadmap has no fee and no obligation. If you later want a comprehensive plan or ongoing management, we'll explain those costs up front.</p>
+        </details>
+        <details>
+          <summary>Do I need a certain amount saved?</summary>
+          <p class="lp-faq-answer">No investment minimums. The roadmap is designed for working professionals 40 and over who are thinking seriously about retirement.</p>
+        </details>
+        <details>
+          <summary>Why is there an agreement?</summary>
+          <p class="lp-faq-answer">A written roadmap is personalized advice, so we document it in a short planning agreement. There's no fee.</p>
+        </details>
+        <details>
+          <summary>What if I'm not in Utah, Texas, or Wyoming?</summary>
+          <p class="lp-faq-answer">We're currently registered in those three states today. However, if you're outside, reach out anyway since we may still be able to manage your account or register in your state.</p>
+        </details>
+        <details>
+          <summary>Who will I meet with?</summary>
+          <p class="lp-faq-answer">Bobby Goodman, CFP&reg;, with support from our advisor team.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLOSING CTA ── -->
+  <section id="lp-cta">
+    <h2>Ready to see where you stand?</h2>
+    <a href="#lp-firstname" class="lp-cta-btn">Request Your Roadmap &rarr;</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer id="lp-footer">
+    <div class="lp-footer-top">
+      <span class="lp-footer-copy">&copy; 2026 Mountain Goat Wealth Management, LLC.</span>
+      <span class="lp-footer-ria">Registered Investment Advisor in UT, TX, and WY.</span>
+      <a href="/legal" class="lp-footer-legal">Legal Disclosures</a>
+      <a href="tel:3853476776" class="lp-footer-phone">(385) 347-6776</a>
+    </div>
+    <div class="lp-footer-compliance">
+      <p>Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.</p>
+      <p>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.</p>
+      <p>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. Being registered as an investment advisor does not imply a certain level of skill or training.</p>
+      <p>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.</p>
+      <p>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ── -->
+  <script src="/assets/js/forms.js"></script>
+  <script>
+    // ── Populate hidden fields from URL params ──
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      ['t', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'].forEach(function (k) {
+        var el = document.getElementById('hf-' + k);
+        if (el) el.value = params.get(k) || '';
+      });
+      var urlEl = document.getElementById('hf-page_url');
+      if (urlEl) urlEl.value = window.location.href;
+    })();
+
+    // ── Two-step form logic ──
+    (function () {
+      var s1        = document.getElementById('lp-s1');
+      var s2        = document.getElementById('lp-s2');
+      var btnNext   = document.getElementById('lp-btn-next');
+      var btnBack   = document.getElementById('lp-btn-back');
+      var btnSubmit = document.getElementById('lp-btn-submit');
+      var formError = document.getElementById('lp-form-error');
+
+      function getVal(id) { return document.getElementById(id).value.trim(); }
+      function markError(inputId, errId, show) {
+        var inp = document.getElementById(inputId);
+        var err = document.getElementById(errId);
+        inp.classList.toggle('error', show);
+        err.classList.toggle('visible', show);
+      }
+      function validatePhone(val) { return val.replace(/\D/g, '').length >= 10; }
+      function validateEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val); }
+
+      // Step 1 → Step 2
+      btnNext.addEventListener('click', function () {
+        var fn    = getVal('lp-firstname');
+        var em    = getVal('lp-email');
+        var ph    = getVal('lp-phone');
+        var ok    = true;
+        markError('lp-firstname', 'err-firstname', !fn);    if (!fn) ok = false;
+        markError('lp-email',     'err-email',     !validateEmail(em)); if (!validateEmail(em)) ok = false;
+        markError('lp-phone',     'err-phone',     !validatePhone(ph)); if (!validatePhone(ph)) ok = false;
+        if (!ok) return;
+
+        // GA4: step 1 complete
+        if (typeof gtag === 'function') { gtag('event', 'form_step_1_complete'); }
+
+        s1.classList.remove('active');
+        s2.classList.add('active');
+        document.getElementById('lp-state').focus();
+      });
+
+      // Step 2 → Back to Step 1
+      btnBack.addEventListener('click', function () {
+        s2.classList.remove('active');
+        s1.classList.add('active');
+        document.getElementById('lp-firstname').focus();
+      });
+
+      // Clear errors on input
+      ['lp-firstname','lp-email','lp-phone'].forEach(function (id) {
+        document.getElementById(id).addEventListener('input', function () {
+          this.classList.remove('error');
+          var errMap = {'lp-firstname':'err-firstname','lp-email':'err-email','lp-phone':'err-phone'};
+          document.getElementById(errMap[id]).classList.remove('visible');
+        });
+      });
+
+      // Submit
+      btnSubmit.addEventListener('click', function () {
+        var state   = getVal('lp-state');
+        var age     = getVal('lp-age');
+        var retire  = getVal('lp-retire');
+        var ok      = true;
+        markError('lp-state',  'err-state',  !state);  if (!state)  ok = false;
+        markError('lp-age',    'err-age',    !age);    if (!age)    ok = false;
+        markError('lp-retire', 'err-retire', !retire); if (!retire) ok = false;
+        if (!ok) return;
+
+        var firstName = getVal('lp-firstname');
+
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = 'Sending…';
+        formError.classList.remove('visible');
+
+        submitForm('roadmap', {
+          name:            firstName,
+          email:           getVal('lp-email'),
+          phone:           getVal('lp-phone'),
+          state:           state,
+          age_range:       age,
+          retire_timeline: retire,
+          lead_source:     document.getElementById('hf-t').value || 'direct',
+          utm_source:      document.getElementById('hf-utm_source').value,
+          utm_medium:      document.getElementById('hf-utm_medium').value,
+          utm_campaign:    document.getElementById('hf-utm_campaign').value,
+          utm_term:        document.getElementById('hf-utm_term').value,
+          gclid:           document.getElementById('hf-gclid').value,
+          page_url:        document.getElementById('hf-page_url').value,
+          website:         document.getElementById('lp-hp-field').value
+        }).then(function (ok) {
+          if (ok) {
+            try {
+              sessionStorage.setItem('mgwm_lead', '1');
+              sessionStorage.setItem('mgwm_first_name', firstName);
+            } catch (e) {}
+            window.location.href = '/thank-you';
+          } else {
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = 'Request My Roadmap →';
+            formError.classList.add('visible');
+          }
+        });
+      });
+    })();
+
+    // ── Scroll reveal ──
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // ── Shrink header on scroll ──
+    (function () {
+      var hdr = document.getElementById('lp-header');
+      window.addEventListener('scroll', function () {
+        hdr.style.borderBottomColor = window.scrollY > 20 ? 'rgba(0,0,0,0.12)' : '';
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

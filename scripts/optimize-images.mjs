@@ -28,6 +28,10 @@ const SIZE_RULES = [
   { match: /^mountain-goat/i,      width: 1600 }, // 880px × 2 → cap 1600
   { match: /^assessment-preview/i, width: 900  }, // 450px × 2
   { match: /^9-step/i,             width: 240  }, // 120px × 2
+  // Bobby portraits — landing page retirement-roadmap.html
+  // Place files in _image-originals/ named bobby-hero.jpg and bobby-candid.jpg
+  { match: /^bobby-hero/i,         width: 1200 }, // hero portrait (right column)
+  { match: /^bobby-candid/i,       width: 800  }, // note-from-bobby section
 ];
 
 const DEFAULT_WIDTH = 1600;

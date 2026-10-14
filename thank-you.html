@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Your Roadmap Request Is In — Mountain Goat Wealth Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZBS25MC1MY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZBS25MC1MY');
+  </script>
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17654251323"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17654251323');
+  </script>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1634340074520455');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1" /></noscript>
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #1c1c1c;
+      background: #fff;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --black: #1c1c1c;
+      --blue:  #007ea7;
+      --blue-dk: #005f7d;
+      --mist:  #e6f4f9;
+      --mid:   #555555;
+      --lt:    #999999;
+      --gray:  #e8e8e8;
+    }
+
+    /* ── LP Header (same as retirement-roadmap.html) ── */
+    #lp-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--gray);
+      padding: 12px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .lp-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .lp-brand img { height: 40px; }
+    .lp-brand-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .lp-header-phone { font-family: 'Lato', sans-serif; font-size: 14px; color: var(--blue); font-weight: 600; }
+    .lp-header-phone:hover { color: var(--blue-dk); }
+
+    /* ── Thank-you hero ── */
+    #ty-hero {
+      padding-top: 64px;
+      background: var(--mist);
+    }
+    .ty-hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 32px 56px;
+      text-align: center;
+    }
+    .ty-check {
+      width: 56px; height: 56px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .ty-hero-inner h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(26px, 3.5vw, 40px);
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+    .ty-hero-inner p {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Booking section ── */
+    #ty-booking {
+      padding: 64px 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .ty-booking-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .ty-booking-label + p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--mid);
+      margin-bottom: 28px;
+    }
+    .ty-calendar-wrap {
+      position: relative;
+      width: 100%;
+      /* 16:10 aspect ratio — tall enough for the scheduler UI */
+      padding-bottom: 62.5%;
+      background: var(--mist);
+      border: 1px solid var(--gray);
+    }
+    .ty-calendar-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .ty-calendar-fallback {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--lt);
+    }
+    .ty-calendar-fallback a { color: var(--blue); text-decoration: underline; }
+
+    /* ── Footer ── */
+    #lp-footer {
+      background: var(--black);
+      padding: 32px 60px 24px;
+    }
+    .lp-footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 24px;
+    }
+    .lp-footer-copy  { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .lp-footer-ria   { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .lp-footer-phone { color: var(--blue); font-size: 14px; font-weight: 600; }
+    .lp-footer-legal { color: rgba(255,255,255,0.45); font-size: 13px; text-decoration: underline; }
+    .lp-footer-legal:hover { color: rgba(255,255,255,0.7); }
+    .lp-footer-compliance p {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 640px) {
+      #lp-header { padding: 12px 20px; }
+      .lp-brand-name { display: none; }
+      #ty-hero { padding-top: 64px; }
+      .ty-hero-inner { padding: 40px 20px 36px; }
+      #ty-booking { padding: 40px 20px; }
+      #lp-footer { padding: 28px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="lp-header">
+    <a href="/" class="lp-brand">
+      <img src="/assets/images/logo-badge.svg" alt="Mountain Goat Wealth Management" />
+      <span class="lp-brand-name">Mountain Goat<br>Wealth Management</span>
+    </a>
+    <a href="tel:3853476776" class="lp-header-phone">(385) 347-6776</a>
+  </header>
+
+  <!-- ── THANK-YOU HERO ── -->
+  <section id="ty-hero">
+    <div class="ty-hero-inner">
+      <div class="ty-check" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4 12l5 5L20 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 id="ty-h1">Thanks — your roadmap request is in.</h1>
+      <p>Bobby or Cade will reach out within one business day from <a href="tel:3853476776" style="color:var(--blue);font-weight:600;">(385) 347-6776</a>. Want to skip the phone tag? Pick a time for Meeting 1 below.</p>
+    </div>
+  </section>
+
+  <!-- ── BOOKING EMBED ── -->
+  <section id="ty-booking">
+    <div class="ty-booking-label">Book Meeting 1</div>
+    <p>Choose a time that works for a 45-minute video call with Bobby.</p>
+    <div class="ty-calendar-wrap">
+      <!--
+        PLACEHOLDER: Set BOOKING_URL to your Google Calendar appointment schedule URL.
+        Format: https://calendar.google.com/calendar/appointments/schedules/<SCHEDULE_ID>?gv=true
+        Replace the src below with that URL.
+      -->
+      <iframe
+        id="ty-calendar-iframe"
+        src="REPLACE_WITH_BOOKING_URL"
+        title="Schedule Meeting 1 with Bobby Goodman"
+        loading="lazy"
+        allow="payment"
+        aria-label="Google Calendar appointment scheduler">
+      </iframe>
+    </div>
+    <p class="ty-calendar-fallback">
+      Embed not loading?
+      <a id="ty-calendar-link" href="REPLACE_WITH_BOOKING_URL" target="_blank" rel="noopener noreferrer">
+        Open the scheduler in a new tab &rarr;
+      </a>
+    </p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer id="lp-footer">
+    <div class="lp-footer-top">
+      <span class="lp-footer-copy">&copy; 2026 Mountain Goat Wealth Management, LLC.</span>
+      <span class="lp-footer-ria">Registered Investment Advisor in UT, TX, and WY.</span>
+      <a href="/legal" class="lp-footer-legal">Legal Disclosures</a>
+      <a href="tel:3853476776" class="lp-footer-phone">(385) 347-6776</a>
+    </div>
+    <div class="lp-footer-compliance">
+      <p>Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.</p>
+      <p>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.</p>
+      <p>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. Being registered as an investment advisor does not imply a certain level of skill or training.</p>
+      <p>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.</p>
+      <p>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    // ── PLACEHOLDER CONSTANTS ──
+    var ADS_LEAD_LABEL = 'REPLACE_WITH_ADS_CONVERSION_LABEL'; // Google Ads conversion label (part after AW-17654251323/)
+    var BOOKING_URL    = 'REPLACE_WITH_BOOKING_URL';           // Google Calendar appointments URL
+
+    // ── Personalize heading from sessionStorage ──
+    (function () {
+      var name = '';
+      try { name = sessionStorage.getItem('mgwm_first_name') || ''; } catch (e) {}
+      if (name) {
+        document.getElementById('ty-h1').textContent = 'Thanks, ' + name + '. Your roadmap request is in.';
+      }
+    })();
+
+    // ── Wire booking URL into iframe and fallback link ──
+    (function () {
+      if (BOOKING_URL && BOOKING_URL !== 'REPLACE_WITH_BOOKING_URL') {
+        document.getElementById('ty-calendar-iframe').src = BOOKING_URL;
+        document.getElementById('ty-calendar-link').href  = BOOKING_URL;
+      }
+    })();
+
+    // ── Conversion events — fire only for real form submissions ──
+    (function () {
+      var isLead = false;
+      try { isLead = sessionStorage.getItem('mgwm_lead') === '1'; } catch (e) {}
+
+      if (isLead) {
+        // Google Ads conversion
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { send_to: 'AW-17654251323/' + ADS_LEAD_LABEL });
+          gtag('event', 'generate_lead');
+        }
+        // Meta Pixel
+        if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+
+        // Clear flag so refreshing doesn't re-fire
+        try { sessionStorage.removeItem('mgwm_lead'); } catch (e) {}
+      }
+    })();
+  </script>
+</body>
+</html>
