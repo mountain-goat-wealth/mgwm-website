@@ -577,27 +577,97 @@
 
       <!-- Left: copy + form -->
       <div class="lp-hero-left">
-        <div class="eyebrow">Complimentary Retirement Roadmap</div>
+        <div class="eyebrow" id="lp-eyebrow">Complimentary Retirement Roadmap</div>
 
         <h1 id="lp-h1">Get a personalized retirement roadmap — complimentary.</h1>
-        <!-- Dynamic headline — set immediately to prevent any flash -->
+
+        <p class="lp-hero-sub" id="lp-sub">Two conversations with Bobby Goodman, CFP&reg;, who spent 18 years at Goldman Sachs Private Wealth Management. You'll leave with a written roadmap for your retirement — at no cost and with no obligation to become a client.</p>
+
+        <!-- Dynamic theme copy — runs right after the last hero element it modifies to prevent any flash -->
         <script>
           (function () {
-            /* ── Allowed headline map — never insert raw URL values ── */
-            var HEADLINES = {
-              default:    'Get a personalized retirement roadmap — complimentary.',
-              advisor:    'Looking for a financial advisor you can actually talk to?',
-              retirement: 'See where you stand on the road to retirement.',
-              wealth:     'Wealth management built for families, not Wall Street.',
-              fiduciary:  'A fiduciary advisor who’s on your side of the table.'
+            /* ══════════════════════════════════════════════════════════════
+               Compliance-approved copy — edit only with CCO approval
+               Keyed by ?t= (ad group). Never insert raw URL values.
+               leadItem:    id of the "What you'll get" item shown first
+               featuredFaq: FAQ ids moved to the top (in order) and opened
+               ══════════════════════════════════════════════════════════════ */
+            var THEMES = {
+              default: {
+                eyebrow: 'Complimentary Retirement Roadmap',
+                h1: 'Get a personalized retirement roadmap — complimentary.',
+                sub: 'Two conversations with Bobby Goodman, CFP®, who spent 18 years at Goldman Sachs Private Wealth Management. You\'ll leave with a written roadmap for your retirement — at no cost and with no obligation to become a client.',
+                leadItem: 'where-you-stand',
+                featuredFaq: []
+              },
+              retirement: {
+                eyebrow: 'Retirement Planning',
+                h1: 'See where you stand on the road to retirement.',
+                sub: 'Two conversations with Bobby Goodman, CFP®, who spent 18 years at Goldman Sachs Private Wealth Management. You\'ll leave with a written roadmap covering your retirement timing, income, and Social Security — at no cost and with no obligation to become a client.',
+                leadItem: 'where-you-stand',
+                featuredFaq: ['too-close']
+              },
+              advisor: {
+                eyebrow: 'Financial Advisors · UT, TX & WY',
+                h1: 'Looking for a financial advisor you can actually talk to?',
+                sub: 'Not sure where to start? Begin with two conversations with Bobby Goodman, CFP®, who spent 18 years at Goldman Sachs Private Wealth Management. You\'ll leave with a written roadmap — at no cost and with no obligation to become a client.',
+                leadItem: 'next-steps',
+                featuredFaq: ['what-to-bring']
+              },
+              fiduciary: {
+                eyebrow: 'Fiduciary Financial Advice',
+                h1: 'A fiduciary advisor who\u2019s on your side of the table.',
+                sub: 'Work with Bobby Goodman, CFP®, a fiduciary who spent 18 years at Goldman Sachs Private Wealth Management. Two conversations, one written roadmap — at no cost and with no obligation to become a client.',
+                leadItem: 'where-you-stand',
+                featuredFaq: ['fiduciary-meaning', 'how-charge']
+              },
+              wealth: {
+                eyebrow: 'Wealth Management',
+                h1: 'Wealth management built for families, not Wall Street.',
+                sub: 'Start with two conversations with Bobby Goodman, CFP®, who spent 18 years at Goldman Sachs Private Wealth Management. You\'ll leave with a written roadmap — at no cost and with no obligation to become a client.',
+                leadItem: 'next-steps',
+                featuredFaq: ['enough-money']
+              }
             };
-            var t = new URLSearchParams(window.location.search).get('t') || 'default';
-            var h = HEADLINES[t] || HEADLINES['default'];
-            document.getElementById('lp-h1').textContent = h;
+
+            var tParam = new URLSearchParams(window.location.search).get('t');
+            var theme = Object.prototype.hasOwnProperty.call(THEMES, tParam) ? tParam : 'default';
+            var copy = THEMES[theme];
+            window.lpTheme = { key: theme, hasParam: tParam !== null };
+
+            /* ── Hero: swap synchronously (elements above are already parsed) ── */
+            document.getElementById('lp-eyebrow').textContent = copy.eyebrow;
+            document.getElementById('lp-h1').textContent      = copy.h1;
+            document.getElementById('lp-sub').textContent     = copy.sub;
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'lp_theme_view', { theme: theme, send_to: 'G-ZBS25MC1MY' });
+            }
+
+            /* ── Lower-page reordering ── */
+            document.addEventListener('DOMContentLoaded', function () {
+              // "What you'll get": move lead item first, keep the stagger delays in visual order
+              var lead = document.getElementById('what-' + copy.leadItem);
+              if (lead) {
+                var grid = lead.parentNode;
+                grid.insertBefore(lead, grid.firstElementChild);
+                Array.prototype.forEach.call(grid.children, function (el, i) {
+                  el.classList.remove('d1', 'd2', 'd3');
+                  if (i > 0 && i < 4) el.classList.add('d' + i);
+                });
+              }
+
+              // FAQ: featured questions go to the top, in order, and render open
+              var list = document.querySelector('.lp-faq-list');
+              for (var i = copy.featuredFaq.length - 1; i >= 0; i--) {
+                var faq = document.getElementById('faq-' + copy.featuredFaq[i]);
+                if (!faq || !list) continue;
+                list.insertBefore(faq, list.firstElementChild);
+                faq.open = true;
+              }
+            });
           })();
         </script>
-
-        <p class="lp-hero-sub">Two conversations with Bobby Goodman, CFP&reg;, who spent 18 years at Goldman Sachs Private Wealth Management. You'll leave with a written roadmap for your retirement — at no cost and with no obligation to become a client.</p>
 
         <!-- ── FORM ── -->
         <div id="lp-form-card">
@@ -731,25 +801,25 @@
       <h2 class="reveal">Your roadmap covers four things.</h2>
       <!-- TODO Bobby: confirm these match the simplified roadmap deliverable -->
       <div class="lp-what-grid">
-        <div class="lp-what-item reveal">
+        <div id="what-where-you-stand" class="lp-what-item reveal">
           <div class="lp-what-icon" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <span class="lp-what-text">Where you stand: are you on track to retire when you want?</span>
         </div>
-        <div class="lp-what-item reveal d1">
+        <div id="what-social-security" class="lp-what-item reveal d1">
           <div class="lp-what-icon" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <span class="lp-what-text">A Social Security timing strategy</span>
         </div>
-        <div class="lp-what-item reveal d2">
+        <div id="what-tax-income" class="lp-what-item reveal d2">
           <div class="lp-what-icon" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <span class="lp-what-text">A tax-aware approach to drawing income in retirement</span>
         </div>
-        <div class="lp-what-item reveal d3">
+        <div id="what-next-steps" class="lp-what-item reveal d3">
           <div class="lp-what-icon" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 6l3 3L10.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -834,25 +904,45 @@
       <div class="eyebrow reveal">Common Questions</div>
       <h2 class="reveal">What people ask before they request a roadmap.</h2>
       <div class="lp-faq-list">
-        <details>
+        <details id="faq-is-complimentary">
           <summary>Is it really complimentary?</summary>
           <p class="lp-faq-answer">Yes. The roadmap has no fee and no obligation. If you later want a comprehensive plan or ongoing management, we'll explain those costs up front.</p>
         </details>
-        <details>
+        <details id="faq-amount-saved">
           <summary>Do I need a certain amount saved?</summary>
           <p class="lp-faq-answer">No investment minimums. The roadmap is designed for working professionals 40 and over who are thinking seriously about retirement.</p>
         </details>
-        <details>
+        <details id="faq-why-agreement">
           <summary>Why is there an agreement?</summary>
           <p class="lp-faq-answer">A written roadmap is personalized advice, so we document it in a short planning agreement. There's no fee.</p>
         </details>
-        <details>
+        <details id="faq-other-states">
           <summary>What if I'm not in Utah, Texas, or Wyoming?</summary>
           <p class="lp-faq-answer">We're currently registered in those three states today. However, if you're outside, reach out anyway since we may still be able to manage your account or register in your state.</p>
         </details>
-        <details>
+        <details id="faq-who-meet">
           <summary>Who will I meet with?</summary>
           <p class="lp-faq-answer">Bobby Goodman, CFP&reg;, with support from our advisor team.</p>
+        </details>
+        <details id="faq-too-close">
+          <summary>I think I am too close to retirement to fix anything.</summary>
+          <p class="lp-faq-answer">The five years before retirement are when good planning has the biggest dollar impact: sequence-of-returns risk, Social Security timing, Roth conversions, and tax-efficient withdrawals all happen in that window. We can usually help clients find meaningful opportunities in the runway.</p>
+        </details>
+        <details id="faq-what-to-bring">
+          <summary>What do I need to bring?</summary>
+          <p class="lp-faq-answer">Nothing. Genuinely. No statements, no spreadsheets, no document gathering. Just be ready to talk about where you are and what you want. If we agree to go further, that's when we'd ask for the formal documents.</p>
+        </details>
+        <details id="faq-fiduciary-meaning">
+          <summary>What does 'fiduciary' actually mean for me?</summary>
+          <p class="lp-faq-answer">It means we will put your interests above ours, on every recommendation, every time. We will always disclose how we're compensated and will never recommend a product that doesn't serve your interests first.</p>
+        </details>
+        <details id="faq-how-charge">
+          <summary>How do you charge?</summary>
+          <p class="lp-faq-answer">We are fee-based for our wealth management clients — a transparent, percentage-based fee on the assets we manage or may receive a commission on insurance products. We will tell you the exact number on our first meeting, before you ever consider becoming a client. No hidden costs.</p>
+        </details>
+        <details id="faq-enough-money">
+          <summary>I don't think I have enough money to work with you.</summary>
+          <p class="lp-faq-answer">We don't have investment minimums. We work with clients across the climb — from professionals laying the foundation to retirees navigating distribution. The only requirement for our first meeting is that you're serious about getting answers.</p>
         </details>
       </div>
     </div>
@@ -887,7 +977,10 @@
     // ── Populate hidden fields from URL params ──
     (function () {
       var params = new URLSearchParams(window.location.search);
-      ['t', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'].forEach(function (k) {
+      // t → resolved theme key (never raw URL text); left blank when absent so lead_source stays 'direct'
+      var tEl = document.getElementById('hf-t');
+      if (tEl && window.lpTheme && window.lpTheme.hasParam) tEl.value = window.lpTheme.key;
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'].forEach(function (k) {
         var el = document.getElementById('hf-' + k);
         if (el) el.value = params.get(k) || '';
       });
