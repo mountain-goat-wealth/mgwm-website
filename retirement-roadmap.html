@@ -340,6 +340,13 @@
       padding: 28px;
       display: flex; flex-direction: column; gap: 10px;
     }
+    .lp-pain-who { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+    .lp-pain-who img {
+      width: 64px; height: 64px; flex-shrink: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--line);
+    }
     .lp-quote-mark {
       font-family: 'Merriweather', serif; font-weight: 700;
       font-size: 40px; line-height: 1; height: 26px;
@@ -373,6 +380,14 @@
     }
     .lp-step-title { font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.35; }
     .lp-step-desc { font-size: 17px; color: var(--muted); line-height: 1.6; }
+    /* Our work between meetings — styled apart from the client's steps */
+    .lp-how-grid.has-between { grid-template-columns: 1fr 1fr 0.85fr 1fr; }
+    .lp-how-between { font-style: italic; }
+    .lp-how-between .lp-step-num {
+      background: transparent; color: var(--blue-dk);
+      border: 2px dashed var(--blue);
+    }
+    .lp-how-between .lp-step-title { color: var(--blue-dk); }
     .lp-center-cta { display: flex; justify-content: center; margin-top: 48px; }
 
     /* ── Meet your advisor (dark band) ── */
@@ -477,7 +492,7 @@
     @media (max-width: 899px) {
       .lp-hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .lp-advisor { max-width: 420px; }
-      .lp-pain-grid, .lp-how-grid, .lp-reviews-grid { grid-template-columns: 1fr; }
+      .lp-pain-grid, .lp-how-grid, .lp-how-grid.has-between, .lp-reviews-grid { grid-template-columns: 1fr; }
       .lp-note-inner { grid-template-columns: 1fr; gap: 36px; }
       .lp-note-photo { max-width: 280px; }
     }
@@ -766,15 +781,24 @@
       </div>
       <div class="lp-pain-grid">
         <div class="lp-pain-card reveal">
-          <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="lp-pain-who">
+            <img src="/assets/images/pain-couple.webp" alt="" width="64" height="64" loading="lazy" />
+            <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          </div>
           <p>I don't actually know if I'm saving enough — or when I can retire.</p>
         </div>
         <div class="lp-pain-card reveal d1">
-          <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="lp-pain-who">
+            <img src="/assets/images/pain-man.webp" alt="" width="64" height="64" loading="lazy" />
+            <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          </div>
           <p>I have old 401(k)s scattered across past employers and no idea what to do with them.</p>
         </div>
         <div class="lp-pain-card reveal d2">
-          <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="lp-pain-who">
+            <img src="/assets/images/pain-woman.webp" alt="" width="64" height="64" loading="lazy" />
+            <div class="lp-quote-mark" aria-hidden="true">&ldquo;</div>
+          </div>
           <p>I'm worried that a bad market year right before I retire could derail everything.</p>
         </div>
       </div>
@@ -817,7 +841,7 @@
         <div class="eyebrow reveal">The Process</div>
         <h2 class="reveal">Three steps. Two meetings. One written plan.</h2>
       </div>
-      <div class="lp-how-grid">
+      <div class="lp-how-grid has-between">
         <div class="lp-how-step reveal">
           <div class="lp-step-num" aria-hidden="true">1</div>
           <div class="lp-step-title">Request your roadmap</div>
@@ -828,7 +852,14 @@
           <div class="lp-step-title">Meeting 1 &middot; Video call</div>
           <p class="lp-step-desc">We learn where you are and where you want to go. You'll sign a short planning agreement. There's no fee.</p>
         </div>
-        <div class="lp-how-step reveal d2">
+        <div class="lp-how-step lp-how-between reveal d2">
+          <div class="lp-step-num" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="lp-step-title">We go to work</div>
+          <p class="lp-step-desc">We use what we learned in our first call to prepare your Retirement Roadmap.</p>
+        </div>
+        <div class="lp-how-step reveal d3">
           <div class="lp-step-num" aria-hidden="true">3</div>
           <div class="lp-step-title">Meeting 2 &middot; Video call</div>
           <p class="lp-step-desc">We walk you through your written roadmap. Then you decide: run with it on your own, or have us help.</p>
