@@ -39,103 +39,105 @@
     src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1" /></noscript>
 
   <style>
+    /* ── Brand tokens (shared with retirement-roadmap.html) ── */
+    :root {
+      --white:     #ffffff;
+      --mist:      #e6f4f9;
+      --blue:      #007ea7;
+      --blue-dk:   #00658a;
+      --ink:       #1c1c1c;
+      --muted:     #555555;
+      --line:      #e8e8e8;
+      --gutter:    clamp(20px, 5vw, 80px);
+    }
+
     /* ── Reset & base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Lato', sans-serif;
-      font-size: 18px;
-      line-height: 1.75;
-      color: #1c1c1c;
-      background: #fff;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--white);
     }
     img { max-width: 100%; display: block; height: auto; }
     a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 
-    :root {
-      --black: #1c1c1c;
-      --blue:  #007ea7;
-      --blue-dk: #005f7d;
-      --mist:  #e6f4f9;
-      --mid:   #555555;
-      --lt:    #999999;
-      --gray:  #e8e8e8;
-    }
-
-    /* ── LP Header (same as retirement-roadmap.html) ── */
+    /* ── Header (same as retirement-roadmap.html) ── */
     #lp-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: #fff;
-      border-bottom: 1px solid var(--gray);
-      padding: 12px 48px;
-      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 12px var(--gutter);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
-    .lp-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .lp-brand img { height: 40px; }
+    .lp-brand { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+    .lp-brand img { height: 40px; width: auto; }
     .lp-brand-name {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      color: var(--black);
-      font-size: 16px;
+      color: var(--ink);
+      font-size: 15px;
       line-height: 1.3;
     }
-    .lp-header-phone { font-family: 'Lato', sans-serif; font-size: 14px; color: var(--blue); font-weight: 600; }
-    .lp-header-phone:hover { color: var(--blue-dk); }
+    .lp-header-phone {
+      display: inline-flex; align-items: center; min-height: 44px;
+      font-size: 16px; font-weight: 700; color: var(--blue-dk);
+    }
+    .lp-header-phone:hover { color: var(--ink); }
 
     /* ── Thank-you hero ── */
-    #ty-hero {
-      padding-top: 64px;
-      background: var(--mist);
-    }
+    #ty-hero { background: var(--mist); }
     .ty-hero-inner {
       max-width: 720px;
       margin: 0 auto;
-      padding: 64px 32px 56px;
+      padding: 64px var(--gutter) 56px;
       text-align: center;
     }
     .ty-check {
       width: 56px; height: 56px;
       background: var(--blue);
-      border-radius: 50%;
+      border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 24px;
     }
     .ty-hero-inner h1 {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: clamp(26px, 3.5vw, 40px);
-      line-height: 1.2;
-      color: var(--black);
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
       margin-bottom: 20px;
     }
     .ty-hero-inner p {
       font-size: 18px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.7;
+      color: var(--muted);
+      line-height: 1.65;
       max-width: 560px;
       margin: 0 auto;
     }
 
     /* ── Booking section ── */
     #ty-booking {
-      padding: 64px 32px;
+      padding: 64px var(--gutter);
       max-width: 860px;
       margin: 0 auto;
+      box-sizing: content-box;
     }
     .ty-booking-label {
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--blue);
+      letter-spacing: 0.08em;
+      color: var(--blue-dk);
       margin-bottom: 12px;
     }
     .ty-booking-label + p {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--mid);
+      font-size: 17px;
+      color: var(--muted);
       margin-bottom: 28px;
     }
     .ty-calendar-wrap {
@@ -144,7 +146,9 @@
       /* 16:10 aspect ratio — tall enough for the scheduler UI */
       padding-bottom: 62.5%;
       background: var(--mist);
-      border: 1px solid var(--gray);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
     }
     .ty-calendar-wrap iframe {
       position: absolute;
@@ -156,42 +160,31 @@
     .ty-calendar-fallback {
       text-align: center;
       margin-top: 16px;
-      font-size: 14px;
-      color: var(--lt);
+      font-size: 15px;
+      color: var(--muted);
     }
-    .ty-calendar-fallback a { color: var(--blue); text-decoration: underline; }
+    .ty-calendar-fallback a { color: var(--blue-dk); font-weight: 700; text-decoration: underline; }
 
-    /* ── Footer ── */
-    #lp-footer {
-      background: var(--black);
-      padding: 32px 60px 24px;
-    }
+    /* ── Footer (same as retirement-roadmap.html) ── */
+    #lp-footer { padding: 44px var(--gutter) 52px; border-top: 1px solid var(--line); }
+    .lp-footer-inner { max-width: 1120px; margin: 0 auto; }
     .lp-footer-top {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 24px;
       padding-bottom: 24px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 24px;
+      border-bottom: 1px solid var(--line);
     }
-    .lp-footer-copy  { font-size: 13px; color: rgba(255,255,255,0.35); }
-    .lp-footer-ria   { font-size: 13px; color: rgba(255,255,255,0.35); }
-    .lp-footer-phone { color: var(--blue); font-size: 14px; font-weight: 600; }
-    .lp-footer-legal { color: rgba(255,255,255,0.45); font-size: 13px; text-decoration: underline; }
-    .lp-footer-legal:hover { color: rgba(255,255,255,0.7); }
-    .lp-footer-compliance p {
-      font-size: 11.5px;
-      color: rgba(255,255,255,0.3);
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
+    .lp-footer-top .lp-brand img { height: 36px; }
+    .lp-footer-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; font-size: 15px; color: var(--muted); }
+    .lp-footer-meta a { display: inline-flex; align-items: center; min-height: 44px; color: var(--blue-dk); font-weight: 700; }
+    .lp-footer-meta a:hover { color: var(--ink); }
+    .lp-footer-legal { text-decoration: underline; }
+    .lp-footer-compliance { margin-top: 20px; max-width: 920px; }
+    .lp-footer-compliance p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 10px; }
 
-    @media (max-width: 640px) {
-      #lp-header { padding: 12px 20px; }
+    @media (max-width: 699px) {
       .lp-brand-name { display: none; }
-      #ty-hero { padding-top: 64px; }
-      .ty-hero-inner { padding: 40px 20px 36px; }
-      #ty-booking { padding: 40px 20px; }
-      #lp-footer { padding: 28px 20px 20px; }
+      .ty-hero-inner { padding: 40px var(--gutter) 36px; }
+      #ty-booking { padding: 40px var(--gutter); }
     }
   </style>
 </head>
@@ -200,7 +193,7 @@
   <!-- ── HEADER ── -->
   <header id="lp-header">
     <a href="/" class="lp-brand">
-      <img src="/assets/images/logo-badge.svg" alt="Mountain Goat Wealth Management" />
+      <img src="/assets/images/logo-badge-112.webp" alt="Mountain Goat Wealth Management" width="134" height="112" />
       <span class="lp-brand-name">Mountain Goat<br>Wealth Management</span>
     </a>
     <a href="tel:3853476776" class="lp-header-phone">(385) 347-6776</a>
@@ -215,7 +208,7 @@
         </svg>
       </div>
       <h1 id="ty-h1">Thanks — your roadmap request is in.</h1>
-      <p>Bobby or Cade will reach out within one business day from <a href="tel:3853476776" style="color:var(--blue);font-weight:600;">(385) 347-6776</a>. Want to skip the phone tag? Pick a time for Meeting 1 below.</p>
+      <p>Bobby or Cade will reach out within one business day from <a href="tel:3853476776" style="color:var(--blue-dk);font-weight:700;white-space:nowrap;">(385) 347-6776</a>. Want to skip the phone tag? Pick a time for Meeting 1 below.</p>
     </div>
   </section>
 
@@ -248,18 +241,26 @@
 
   <!-- ── FOOTER ── -->
   <footer id="lp-footer">
-    <div class="lp-footer-top">
-      <span class="lp-footer-copy">&copy; 2026 Mountain Goat Wealth Management, LLC.</span>
-      <span class="lp-footer-ria">Registered Investment Advisor in UT, TX, and WY.</span>
-      <a href="/legal" class="lp-footer-legal">Legal Disclosures</a>
-      <a href="tel:3853476776" class="lp-footer-phone">(385) 347-6776</a>
-    </div>
-    <div class="lp-footer-compliance">
-      <p>Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.</p>
-      <p>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.</p>
-      <p>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. Being registered as an investment advisor does not imply a certain level of skill or training.</p>
-      <p>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.</p>
-      <p>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
+    <div class="lp-footer-inner">
+      <div class="lp-footer-top">
+        <a href="/" class="lp-brand">
+          <img src="/assets/images/logo-badge-112.webp" alt="Mountain Goat Wealth Management" width="134" height="112" loading="lazy" />
+          <span class="lp-brand-name">Mountain Goat<br>Wealth Management</span>
+        </a>
+        <div class="lp-footer-meta">
+          <span>Salt Lake City, UT</span>
+          <a href="tel:3853476776">(385) 347-6776</a>
+          <a href="/legal" class="lp-footer-legal">Disclosures</a>
+        </div>
+      </div>
+      <div class="lp-footer-compliance">
+        <p>&copy; 2026 Mountain Goat Wealth Management, LLC. Registered Investment Advisor in UT, TX, and WY.</p>
+        <p>Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.</p>
+        <p>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.</p>
+        <p>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. Being registered as an investment advisor does not imply a certain level of skill or training.</p>
+        <p>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.</p>
+        <p>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
+      </div>
     </div>
   </footer>
 
