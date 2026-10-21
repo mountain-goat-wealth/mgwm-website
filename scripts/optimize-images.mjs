@@ -32,6 +32,9 @@ const SIZE_RULES = [
   // Place files in _image-originals/ named bobby-hero.jpg and bobby-candid.jpg
   { match: /^bobby-hero/i,         width: 1200 }, // hero portrait (right column)
   { match: /^bobby-candid/i,       width: 800  }, // note-from-bobby section
+  { match: /^bobby-adventure/i,    width: 1200 }, // why-mountain-goat section
+  { match: /^bobby-smiling/i,      width: 1000 }, // hero portrait (_image-originals/bobby/)
+  { match: /^bobby-standing/i,     width: 1000 }, // note-from-bobby portrait (_image-originals/bobby/)
 ];
 
 const DEFAULT_WIDTH = 1600;
@@ -102,11 +105,19 @@ async function processRule(srcPath, file, rule) {
 }
 
 async function main() {
-  const files  = await readdir(SRC_DIR);
-  const images = files.filter(f => /\.(png|jpe?g|webp|avif|tiff?)$/i.test(f));
+  // Includes one level of subfolders (e.g. _image-originals/bobby/); output stays flat.
+  const images = [];
+  for (const entry of await readdir(SRC_DIR, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      for (const f of await readdir(join(SRC_DIR, entry.name))) images.push(join(entry.name, f));
+    } else {
+      images.push(entry.name);
+    }
+  }
 
-  for (const file of images) {
-    const srcPath = join(SRC_DIR, file);
+  for (const rel of images.filter(f => /\.(png|jpe?g|webp|avif|tiff?)$/i.test(f))) {
+    const file    = basename(rel);
+    const srcPath = join(SRC_DIR, rel);
     const rules   = getRules(file);
     for (const rule of rules) {
       await processRule(srcPath, file, rule);

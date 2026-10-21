@@ -354,6 +354,49 @@
     }
     .lp-pain-card p { font-size: 18px; font-weight: 700; line-height: 1.5; color: var(--ink); }
 
+    /* ── Why Mountain Goat ── */
+    .lp-why-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      /* Spacer rows (1fr) vertically center head + body against the photo */
+      grid-template-rows: 1fr auto auto 1fr;
+      grid-template-areas: "photo ." "photo head" "photo body" "photo .";
+      column-gap: 64px; row-gap: 0;
+    }
+    .lp-why-head { grid-area: head; display: flex; flex-direction: column; gap: 14px; }
+    .lp-why-head h2 em { font-style: italic; color: var(--blue-dk); }
+    .lp-why-photo { grid-area: photo; align-self: center; }
+    .lp-why-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 60%;
+      border-radius: 20px;
+    }
+    .lp-why-caption {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 12px;
+      font-size: 14px; color: var(--muted); line-height: 1.4;
+    }
+    .lp-why-caption svg { flex-shrink: 0; }
+    .lp-why-body { grid-area: body; display: flex; flex-direction: column; gap: 16px; margin-top: 18px; }
+    .lp-why-body > p { font-size: 17px; line-height: 1.65; color: var(--muted); }
+    .lp-why-points {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;
+      margin-top: clamp(36px, 5vw, 52px); padding-top: clamp(32px, 4vw, 44px);
+      border-top: 1px solid var(--line);
+    }
+    .lp-why-points li { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+    .lp-why-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--mist);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lp-why-point-title { font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+    .lp-why-point-desc { font-size: 17px; line-height: 1.65; color: var(--muted); margin-top: 2px; }
+
     /* ── What your roadmap covers ── */
     .lp-what-grid {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
@@ -371,7 +414,13 @@
 
     /* ── How it works ── */
     .lp-how-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-    .lp-how-step { display: flex; flex-direction: column; gap: 14px; }
+    .lp-how-step {
+      display: flex; flex-direction: column; gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+    }
     .lp-step-num {
       width: 44px; height: 44px; border-radius: 12px;
       background: var(--blue); color: var(--white);
@@ -495,6 +544,15 @@
       .lp-pain-grid, .lp-how-grid, .lp-how-grid.has-between, .lp-reviews-grid { grid-template-columns: 1fr; }
       .lp-note-inner { grid-template-columns: 1fr; gap: 36px; }
       .lp-note-photo { max-width: 280px; }
+      .lp-why-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "head" "photo" "body";
+        row-gap: 28px;
+      }
+      .lp-why-body { margin-top: 0; }
+      .lp-why-points { grid-template-columns: 1fr; gap: 20px; }
+      .lp-why-points li { flex-direction: row; gap: 16px; }
     }
     @media (max-width: 699px) {
       .lp-what-grid { grid-template-columns: 1fr; }
@@ -754,9 +812,9 @@
           TODO: Replace with bobby-hero.webp once photos are added to _image-originals/bobby/.
           Run `npm run images` to regenerate the optimized version (target: ≤ 1200px wide).
         -->
-        <img src="/assets/images/headshot-bobby.webp"
+        <img src="/assets/images/bobby-smiling.webp"
              alt="Bobby Goodman, CFP® — Founder of Mountain Goat Wealth Management"
-             width="640" height="1212"
+             width="1000" height="1333"
              fetchpriority="high" decoding="async" />
         <div>
           <div class="lp-advisor-name">Bobby Goodman, CFP&reg;</div>
@@ -805,8 +863,66 @@
     </div>
   </section>
 
-  <!-- ── WHAT YOU'LL GET ── -->
+  <!-- ── WHY MOUNTAIN GOAT ── -->
   <section class="lp-section">
+    <div class="lp-wrap">
+      <div class="lp-why-inner">
+        <div class="lp-why-head reveal">
+          <div class="eyebrow">Why &ldquo;Mountain Goat&rdquo;</div>
+          <h2>Every big climb starts with a <em>good route.</em></h2>
+        </div>
+        <figure class="lp-why-photo reveal">
+          <img src="/assets/images/bobby-adventure.webp"
+               alt="Bobby Goodman wearing a climbing helmet in front of glaciers and peaks in Wyoming's Wind River Range"
+               width="1200" height="900"
+               loading="lazy" decoding="async" />
+          <!-- TODO Bobby: confirm location -->
+          <figcaption class="lp-why-caption">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" stroke="#00658a" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" stroke="#00658a" stroke-width="2"/></svg>
+            Bobby in the Wind River Range, Wyoming
+          </figcaption>
+        </figure>
+        <div class="lp-why-body reveal d1">
+          <p>Our name comes from the trail-running group where it all started, the Mountain Goats of Millcreek Canyon. Nimble, steady, and comfortable on steep terrain.</p>
+          <!-- TODO Bobby: confirm "often" and the location -->
+          <p>When Bobby isn't meeting with clients, you'll often find him somewhere like Wyoming's Wind River Range, where reaching the summit is only half the goal. Getting back down is the other half.</p>
+          <p>Retirement works the same way. You study the terrain, prepare for changing weather, and choose a pace you can sustain for the long haul. That's the mindset behind every Retirement Roadmap.</p>
+        </div>
+      </div>
+      <ul class="lp-why-points reveal d2">
+        <li>
+          <div class="lp-why-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#00658a" stroke-width="2"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke="#00658a" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="lp-why-point-title">Scout the route</div>
+            <p class="lp-why-point-desc">Know where you stand before taking the next step.</p>
+          </div>
+        </li>
+        <li>
+          <div class="lp-why-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 18h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.1 4.5 4.5 0 0 0 7 18z" stroke="#00658a" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="lp-why-point-title">Pack for the weather</div>
+            <p class="lp-why-point-desc">Plan for the market dips, tax changes, and surprises you can't predict.</p>
+          </div>
+        </li>
+        <li>
+          <div class="lp-why-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 19l6.5-11 4 6.5 2.5-4L21 19H3z" stroke="#00658a" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="lp-why-point-title">Climb at your pace</div>
+            <p class="lp-why-point-desc">A plan built around your life and your timeline, not someone else's.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── WHAT YOU'LL GET ── -->
+  <section class="lp-section lp-section-mist">
     <div class="lp-wrap">
       <div class="lp-head">
         <div class="eyebrow reveal">The Retirement Roadmap</div>
@@ -835,7 +951,7 @@
   </section>
 
   <!-- ── HOW IT WORKS ── -->
-  <section class="lp-section lp-section-mist">
+  <section class="lp-section">
     <div class="lp-wrap">
       <div class="lp-head">
         <div class="eyebrow reveal">The Process</div>
@@ -876,9 +992,9 @@
     <div class="lp-note-inner">
       <div class="lp-note-photo reveal">
         <!-- TODO: replace with a candid Bobby photo from _image-originals/bobby/ -->
-        <img src="/assets/images/headshot-bobby.webp"
+        <img src="/assets/images/bobby-standing.webp"
              alt="Bobby Goodman, CFP®"
-             width="640" height="1212"
+             width="1000" height="1333"
              loading="lazy" decoding="async" />
       </div>
       <div class="lp-note-text reveal d1">
