@@ -88,82 +88,157 @@
     }
     .lp-header-phone:hover { color: var(--ink); }
 
-    /* ── Thank-you hero ── */
-    #ty-hero { background: var(--mist); }
-    .ty-hero-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 64px var(--gutter) 56px;
-      text-align: center;
+    h1, h2, h3 { font-family: 'Merriweather', serif; font-weight: 700; color: var(--ink); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
-    .ty-check {
-      width: 56px; height: 56px;
-      background: var(--blue);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
+
+    /* ── Buttons (same as retirement-roadmap.html) ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px;
+      padding: 14px 30px;
+      border: none; border-radius: 999px;
+      background: var(--blue); color: var(--white);
+      font-family: 'Lato', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.2;
+      transition: background 0.2s, color 0.2s;
     }
-    .ty-hero-inner h1 {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
+    .btn:hover { background: var(--blue-dk); }
+    .btn-outline {
+      background: var(--white); color: var(--blue-dk);
+      box-shadow: inset 0 0 0 2px var(--blue);
+    }
+    .btn-outline:hover { background: var(--mist); color: var(--blue-dk); }
+
+    /* ── Section scaffolding (same as retirement-roadmap.html) ── */
+    .lp-section { padding: clamp(56px, 7vw, 80px) var(--gutter); }
+    .lp-section-mist { background: var(--mist); }
+    .lp-wrap { max-width: 1120px; margin: 0 auto; }
+    .lp-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: clamp(36px, 5vw, 52px); }
+    .lp-head h2, .lp-section h2 {
+      font-size: clamp(26px, 3.2vw, 36px);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      max-width: 760px;
+    }
+
+    /* ── Confirmation ── */
+    .ty-confirm {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 56px; align-items: center;
+    }
+    .ty-confirm-photo img {
+      width: 100%; max-width: 420px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 20px;
+    }
+    .ty-received {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--mist); color: var(--blue-dk);
+      font-size: 14px; font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .ty-confirm h1 {
       font-size: clamp(28px, 3.6vw, 42px);
       line-height: 1.15;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .ty-attrib {
+      font-family: 'Merriweather', serif; font-style: italic; font-weight: 400;
+      font-size: 18px; color: var(--blue-dk);
       margin-bottom: 20px;
     }
-    .ty-hero-inner p {
+    .ty-confirm-text > p:not(.ty-attrib) {
       font-size: 18px;
       color: var(--muted);
       line-height: 1.65;
       max-width: 560px;
-      margin: 0 auto;
     }
+    .ty-confirm-text p a { color: var(--blue-dk); font-weight: 700; white-space: nowrap; }
+    .ty-actions { display: flex; gap: 16px; margin-top: 32px; }
 
-    /* ── Booking section ── */
-    #ty-booking {
-      padding: 64px var(--gutter);
-      max-width: 860px;
-      margin: 0 auto;
-      box-sizing: content-box;
-    }
-    .ty-booking-label {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--blue-dk);
-      margin-bottom: 12px;
-    }
-    .ty-booking-label + p {
-      font-size: 17px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .ty-calendar-wrap {
-      position: relative;
-      width: 100%;
-      /* 16:10 aspect ratio — tall enough for the scheduler UI */
-      padding-bottom: 62.5%;
-      background: var(--mist);
+    /* ── What happens next (step cards from retirement-roadmap.html) ── */
+    .lp-how-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+    .lp-how-step {
+      display: flex; flex-direction: column; gap: 14px;
+      background: var(--white);
       border: 1px solid var(--line);
       border-radius: 16px;
-      overflow: hidden;
+      padding: 28px;
     }
-    .ty-calendar-wrap iframe {
-      position: absolute;
-      inset: 0;
+    .lp-step-num {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--blue); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Merriweather', serif; font-weight: 700; font-size: 18px;
+    }
+    .lp-step-title { font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+    .lp-step-desc { font-size: 17px; color: var(--muted); line-height: 1.6; }
+    /* Our work between meetings — styled apart from the client's steps */
+    .lp-how-grid.has-between { grid-template-columns: 1fr 1fr 0.85fr 1fr; }
+    .lp-how-between { font-style: italic; }
+    .lp-how-between .lp-step-num {
+      background: transparent; color: var(--blue-dk);
+      border: 2px dashed var(--blue);
+    }
+    .lp-how-between .lp-step-title { color: var(--blue-dk); }
+    /* Completed step */
+    .ty-step-top { display: flex; align-items: center; gap: 12px; }
+    .ty-done-label {
+      padding: 4px 12px; border-radius: 999px;
+      background: var(--mist); color: var(--blue-dk);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── Note from Bobby ── */
+    .ty-note-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+      gap: 56px; align-items: center;
+    }
+    .ty-note-photo img {
       width: 100%;
-      height: 100%;
-      border: none;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 16px;
     }
-    .ty-calendar-fallback {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 15px;
-      color: var(--muted);
+    .ty-note-text { display: flex; flex-direction: column; gap: 18px; max-width: 640px; }
+    .ty-note-text p { font-size: 17px; line-height: 1.7; color: var(--muted); }
+    .ty-note-sig { font-family: 'Merriweather', serif; font-size: 19px; color: var(--ink); line-height: 1.5; }
+
+    /* ── While you wait ── */
+    .ty-video-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;
+      max-width: 920px; margin: 0 auto;
     }
-    .ty-calendar-fallback a { color: var(--blue-dk); font-weight: 700; text-decoration: underline; }
+    .ty-video {
+      display: flex; flex-direction: column; gap: 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 16px 24px;
+      transition: border-color 0.2s;
+    }
+    .ty-video:hover { border-color: var(--blue); }
+    .ty-video-thumb { position: relative; border-radius: 12px; overflow: hidden; }
+    .ty-video-thumb img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .ty-play {
+      position: absolute; top: 50%; left: 50%;
+      width: 64px; height: 64px; margin: -32px 0 0 -32px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--blue) 65%, transparent); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .ty-video:hover .ty-play { background: color-mix(in srgb, var(--blue-dk) 80%, transparent); }
+    .ty-video-title { font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.35; padding: 0 8px; }
 
     /* ── Footer (same as retirement-roadmap.html) ── */
     #lp-footer { padding: 44px var(--gutter) 52px; border-top: 1px solid var(--line); }
@@ -181,10 +256,24 @@
     .lp-footer-compliance { margin-top: 20px; max-width: 920px; }
     .lp-footer-compliance p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 10px; }
 
+    @media (max-width: 899px) {
+      .ty-confirm-section { padding-top: 32px; }
+      .ty-confirm { grid-template-columns: 1fr; gap: 16px; }
+      .ty-confirm-photo img {
+        width: 96px; height: 96px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+      }
+      .ty-received { margin-bottom: 16px; }
+      .ty-actions { flex-direction: column; margin-top: 28px; }
+      .ty-actions .btn { width: 100%; }
+      .lp-how-grid, .lp-how-grid.has-between { grid-template-columns: 1fr; }
+      .ty-note-inner { grid-template-columns: 1fr; gap: 36px; }
+      .ty-note-photo { max-width: 280px; }
+    }
     @media (max-width: 699px) {
       .lp-brand-name { display: none; }
-      .ty-hero-inner { padding: 40px var(--gutter) 36px; }
-      #ty-booking { padding: 40px var(--gutter); }
+      .ty-video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -199,44 +288,113 @@
     <a href="tel:3853476776" class="lp-header-phone">(385) 347-6776</a>
   </header>
 
-  <!-- ── THANK-YOU HERO ── -->
-  <section id="ty-hero">
-    <div class="ty-hero-inner">
-      <div class="ty-check" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M4 12l5 5L20 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <!-- ── CONFIRMATION ── -->
+  <section class="lp-section ty-confirm-section">
+    <div class="ty-confirm">
+      <div class="ty-confirm-photo">
+        <img src="/assets/images/bobby-standing-far.webp"
+             alt="Bobby Goodman, CFP®, founder of Mountain Goat Wealth Management"
+             width="1000" height="1333"
+             fetchpriority="high" decoding="async" />
       </div>
-      <h1 id="ty-h1">Thanks — your roadmap request is in.</h1>
-      <p>Bobby or Cade will reach out within one business day from <a href="tel:3853476776" style="color:var(--blue-dk);font-weight:700;white-space:nowrap;">(385) 347-6776</a>. Want to skip the phone tag? Pick a time for Meeting 1 below.</p>
+      <div class="ty-confirm-text">
+        <div class="ty-received">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Request received
+        </div>
+        <h1 id="ty-h1">Thanks — your roadmap request is in.</h1>
+        <p class="ty-attrib">— Bobby Goodman, CFP&reg;</p>
+        <p>You'll get a call within one business day from <a href="tel:3853476776">(385)&nbsp;347-6776</a>.</p>
+        <div class="ty-actions">
+          <a href="/assets/mgwm-contact.vcf" class="btn" download="Mountain Goat Wealth Management.vcf">Save our number</a>
+          <a href="tel:3853476776" class="btn btn-outline">Call us now</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ── BOOKING EMBED ── -->
-  <section id="ty-booking">
-    <div class="ty-booking-label">Book Meeting 1</div>
-    <p>Choose a time that works for a 45-minute video call with Bobby.</p>
-    <div class="ty-calendar-wrap">
-      <!--
-        PLACEHOLDER: Set BOOKING_URL to your Google Calendar appointment schedule URL.
-        Format: https://calendar.google.com/calendar/appointments/schedules/<SCHEDULE_ID>?gv=true
-        Replace the src below with that URL.
-      -->
-      <iframe
-        id="ty-calendar-iframe"
-        src="REPLACE_WITH_BOOKING_URL"
-        title="Schedule Meeting 1 with Bobby Goodman"
-        loading="lazy"
-        allow="payment"
-        aria-label="Google Calendar appointment scheduler">
-      </iframe>
+  <!-- ── WHAT HAPPENS NEXT (cards mirror retirement-roadmap.html "The Process") ── -->
+  <section class="lp-section lp-section-mist">
+    <div class="lp-wrap">
+      <div class="lp-head">
+        <h2>What happens next</h2>
+      </div>
+      <div class="lp-how-grid has-between">
+        <div class="lp-how-step">
+          <div class="ty-step-top">
+            <div class="lp-step-num" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="ty-done-label">Done</span>
+          </div>
+          <div class="lp-step-title">Request your roadmap</div>
+          <p class="lp-step-desc">We've got it, and we'll reach out within one business day.</p>
+        </div>
+        <div class="lp-how-step">
+          <div class="lp-step-num" aria-hidden="true">2</div>
+          <div class="lp-step-title">Meeting 1 &middot; Video call</div>
+          <p class="lp-step-desc">We learn where you are and where you want to go. You'll sign a short planning agreement. There's no fee.</p>
+        </div>
+        <div class="lp-how-step lp-how-between">
+          <div class="lp-step-num" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="lp-step-title">We go to work</div>
+          <p class="lp-step-desc">We use what we learned in our first call to prepare your Retirement Roadmap.</p>
+        </div>
+        <div class="lp-how-step">
+          <div class="lp-step-num" aria-hidden="true">3</div>
+          <div class="lp-step-title">Meeting 2 &middot; Video call</div>
+          <p class="lp-step-desc">We walk you through your written roadmap. Then you decide: run with it on your own, or have us help.</p>
+        </div>
+      </div>
     </div>
-    <p class="ty-calendar-fallback">
-      Embed not loading?
-      <a id="ty-calendar-link" href="REPLACE_WITH_BOOKING_URL" target="_blank" rel="noopener noreferrer">
-        Open the scheduler in a new tab &rarr;
-      </a>
-    </p>
+  </section>
+
+  <!-- ── NOTE FROM BOBBY ── -->
+  <!-- TODO Bobby: approve this note -->
+  <section class="lp-section" aria-label="A note from Bobby">
+    <div class="ty-note-inner">
+      <div class="ty-note-photo">
+        <img src="/assets/images/bobby-smiling.webp"
+             alt="Bobby Goodman, CFP®"
+             width="1000" height="1333"
+             loading="lazy" decoding="async" />
+      </div>
+      <div class="ty-note-text">
+        <p>I'm looking forward to learning about where you are and where you want to go. Our first conversation is simply that, a conversation. There's nothing to prepare.</p>
+        <div class="ty-note-sig">Talk soon,<br>— Bobby Goodman, CFP&reg;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHILE YOU WAIT ── -->
+  <section class="lp-section lp-section-mist">
+    <div class="lp-wrap">
+      <div class="lp-head">
+        <h2>While you wait</h2>
+      </div>
+      <div class="ty-video-grid">
+        <a class="ty-video" href="https://www.youtube.com/watch?v=wPnhSrGq5mE" target="_blank" rel="noopener">
+          <div class="ty-video-thumb">
+            <img src="https://img.youtube.com/vi/wPnhSrGq5mE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
+            <span class="ty-play" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <span class="ty-video-title">Is $1.4 Million Enough to Retire at 55? A Full 2027 Breakdown<span class="sr-only"> (opens YouTube in a new tab)</span></span>
+        </a>
+        <a class="ty-video" href="https://www.youtube.com/watch?v=kU4DttXJbzE" target="_blank" rel="noopener">
+          <div class="ty-video-thumb">
+            <img src="https://img.youtube.com/vi/kU4DttXJbzE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
+            <span class="ty-play" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            </span>
+          </div>
+          <span class="ty-video-title">Social Security COLA 2027: What It Means for Your Retirement Plans<span class="sr-only"> (opens YouTube in a new tab)</span></span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- ── FOOTER ── -->
@@ -268,7 +426,6 @@
   <script>
     // ── PLACEHOLDER CONSTANTS ──
     var ADS_LEAD_LABEL = 'REPLACE_WITH_ADS_CONVERSION_LABEL'; // Google Ads conversion label (part after AW-17654251323/)
-    var BOOKING_URL    = 'REPLACE_WITH_BOOKING_URL';           // Google Calendar appointments URL
 
     // ── Personalize heading from sessionStorage ──
     (function () {
@@ -276,14 +433,6 @@
       try { name = sessionStorage.getItem('mgwm_first_name') || ''; } catch (e) {}
       if (name) {
         document.getElementById('ty-h1').textContent = 'Thanks, ' + name + '. Your roadmap request is in.';
-      }
-    })();
-
-    // ── Wire booking URL into iframe and fallback link ──
-    (function () {
-      if (BOOKING_URL && BOOKING_URL !== 'REPLACE_WITH_BOOKING_URL') {
-        document.getElementById('ty-calendar-iframe').src = BOOKING_URL;
-        document.getElementById('ty-calendar-link').href  = BOOKING_URL;
       }
     })();
 
