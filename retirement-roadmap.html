@@ -1247,7 +1247,7 @@
         if (!ok) return;
 
         // GA4: step 1 complete
-        if (typeof gtag === 'function') { gtag('event', 'form_step_1_complete'); }
+        if (typeof gtag === 'function') { gtag('event', 'form_step_1_complete', { send_to: 'G-ZBS25MC1MY' }); }
 
         s1.classList.remove('active');
         s2.classList.add('active');

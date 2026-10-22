@@ -445,7 +445,7 @@
         // Google Ads conversion
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', { send_to: 'AW-17654251323/' + ADS_LEAD_LABEL });
-          gtag('event', 'generate_lead');
+          gtag('event', 'generate_lead', { send_to: 'G-ZBS25MC1MY' });
         }
         // Meta Pixel
         if (typeof fbq === 'function') { fbq('track', 'Lead'); }
