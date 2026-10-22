@@ -32,7 +32,9 @@ const SIZE_RULES = [
   // Place files in _image-originals/ named bobby-hero.jpg and bobby-candid.jpg
   { match: /^bobby-hero/i,         width: 1200 }, // hero portrait (right column)
   { match: /^bobby-candid/i,       width: 800  }, // note-from-bobby section
-  { match: /^bobby-adventure/i,    width: 1200 }, // why-mountain-goat section
+  { match: /^bobby-wy/i,           width: 1200 }, // why-mountain-goat photo, ?st=wy (_image-originals/bobby/)
+  { match: /^bobby-ut/i,           width: 1200 }, // why-mountain-goat photo, ?st=ut (_image-originals/bobby/)
+  { match: /^bobby-tx/i,           width: 1200 }, // why-mountain-goat photo, ?st=tx (_image-originals/bobby/)
   { match: /^bobby-smiling/i,      width: 1000 }, // hero portrait (_image-originals/bobby/)
   { match: /^bobby-standing-far/i, width: 1000 }, // thank-you.html top portrait (_image-originals/bobby/)
   { match: /^bobby-standing/i,     width: 1000 }, // note-from-bobby portrait (_image-originals/bobby/)

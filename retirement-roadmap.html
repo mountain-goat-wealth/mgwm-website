@@ -642,7 +642,45 @@
               }
             };
 
-            var tParam = new URLSearchParams(window.location.search).get('t');
+            /* ══════════════════════════════════════════════════════════════
+               Compliance-approved copy — edit only with CCO approval
+               "Why Mountain Goat" photo + paragraph 2, keyed by ?st= (state
+               campaign, case-insensitive). Never insert raw URL values.
+               objectPosition keeps Bobby's face (and the catfish) inside the
+               4:3 object-fit: cover frame.
+               ══════════════════════════════════════════════════════════════ */
+            // TODO Bobby: confirm facts in ut/tx copy
+            var STATES = {
+              wy: {
+                img: '/assets/images/bobby-wy.webp',
+                width: 1200, height: 900, objectPosition: 'center 60%',
+                alt: 'Bobby Goodman wearing a climbing helmet in front of glaciers and peaks in Wyoming\'s Wind River Range',
+                caption: 'Bobby in the Wind River Range, Wyoming',
+                para2: 'When Bobby isn\'t meeting with clients, you\'ll often find him somewhere like Wyoming\'s Wind River Range, where reaching the summit is only half the goal. Getting back down is the other half.'
+              },
+              ut: {
+                img: '/assets/images/bobby-ut.webp',
+                width: 1200, height: 900, objectPosition: 'center',
+                alt: 'Bobby Goodman hiking the Uinta Highline Trail in Utah\'s Uinta Mountains',
+                caption: 'Bobby on the Uinta Highline Trail, Utah',
+                para2: 'When Bobby isn\'t meeting with clients, you\'ll often find him in Utah\'s backcountry. On the Uinta Highline Trail, he summited Kings Peak, the highest point in the state. On a trek that long, the summit is one day. Every other day is about pacing and planning.'
+              },
+              tx: {
+                img: '/assets/images/bobby-tx.webp',
+                width: 1200, height: 1600, objectPosition: 'center 25%',
+                alt: 'Bobby Goodman holding a catfish he caught on Lake Travis, Texas',
+                caption: 'Bobby with a catfish at Lake Travis, Texas',
+                para2: 'Not every adventure is a climb. On Lake Travis in Texas, Bobby spent a day on the water and came back with this catfish, and a reminder that some things can\'t be rushed.'
+              }
+            };
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var stParam = (urlParams.get('st') || '').toLowerCase();
+            var stValid = Object.prototype.hasOwnProperty.call(STATES, stParam);
+            var st = stValid ? stParam : 'wy';
+            window.lpState = { key: st, tracked: stValid ? st : 'none' };
+
+            var tParam = urlParams.get('t');
             var theme = Object.prototype.hasOwnProperty.call(THEMES, tParam) ? tParam : 'default';
             var copy = THEMES[theme];
             window.lpTheme = { key: theme, hasParam: tParam !== null };
@@ -653,7 +691,7 @@
             document.getElementById('lp-sub').textContent     = copy.sub;
 
             if (typeof gtag === 'function') {
-              gtag('event', 'lp_theme_view', { theme: theme, send_to: 'G-ZBS25MC1MY' });
+              gtag('event', 'lp_theme_view', { theme: theme, st: window.lpState.tracked, send_to: 'G-ZBS25MC1MY' });
             }
 
             /* ── Lower-page reordering ── */
@@ -677,6 +715,21 @@
                 list.insertBefore(faq, list.firstElementChild);
                 faq.open = true;
               }
+
+              // "Why Mountain Goat": photo, caption and paragraph 2 follow ?st=
+              var stCopy = STATES[st];
+              var whyImg = document.querySelector('.lp-why-photo img');
+              if (whyImg) {
+                whyImg.src = stCopy.img;
+                whyImg.alt = stCopy.alt;
+                whyImg.width = stCopy.width;
+                whyImg.height = stCopy.height;
+                whyImg.style.objectPosition = stCopy.objectPosition;
+              }
+              var whyCaption = document.getElementById('why-caption');
+              if (whyCaption) whyCaption.textContent = stCopy.caption;
+              var whyPara2 = document.getElementById('why-para2');
+              if (whyPara2) whyPara2.textContent = stCopy.para2;
             });
           })();
         </script>
@@ -698,6 +751,7 @@
           <input type="hidden" id="hf-utm_term"     name="utm_term" />
           <input type="hidden" id="hf-gclid"        name="gclid" />
           <input type="hidden" id="hf-page_url"     name="page_url" />
+          <input type="hidden" id="hf-st"           name="st" />
 
           <!-- Step 1: Contact -->
           <div id="lp-s1" class="lp-step active">
@@ -872,20 +926,20 @@
           <h2>Every big climb starts with a <em>good route.</em></h2>
         </div>
         <figure class="lp-why-photo reveal">
-          <img src="/assets/images/bobby-adventure.webp"
+          <img src="/assets/images/bobby-wy.webp"
                alt="Bobby Goodman wearing a climbing helmet in front of glaciers and peaks in Wyoming's Wind River Range"
                width="1200" height="900"
                loading="lazy" decoding="async" />
           <!-- TODO Bobby: confirm location -->
           <figcaption class="lp-why-caption">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" stroke="#00658a" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" stroke="#00658a" stroke-width="2"/></svg>
-            Bobby in the Wind River Range, Wyoming
+            <span id="why-caption">Bobby in the Wind River Range, Wyoming</span>
           </figcaption>
         </figure>
         <div class="lp-why-body reveal d1">
           <p>Our name comes from the trail-running group where it all started, the Mountain Goats of Millcreek Canyon. Nimble, steady, and comfortable on steep terrain.</p>
           <!-- TODO Bobby: confirm "often" and the location -->
-          <p>When Bobby isn't meeting with clients, you'll often find him somewhere like Wyoming's Wind River Range, where reaching the summit is only half the goal. Getting back down is the other half.</p>
+          <p id="why-para2">When Bobby isn't meeting with clients, you'll often find him somewhere like Wyoming's Wind River Range, where reaching the summit is only half the goal. Getting back down is the other half.</p>
           <p>Retirement works the same way. You study the terrain, prepare for changing weather, and choose a pace you can sustain for the long haul. That's the mindset behind every Retirement Roadmap.</p>
         </div>
       </div>
@@ -1157,6 +1211,9 @@
       });
       var urlEl = document.getElementById('hf-page_url');
       if (urlEl) urlEl.value = window.location.href;
+      // st → resolved photo state (ut/tx/wy), or 'none' when the URL had no valid st
+      var stEl = document.getElementById('hf-st');
+      if (stEl) stEl.value = window.lpState ? window.lpState.tracked : 'none';
     })();
 
     // ── Two-step form logic ──
@@ -1244,6 +1301,7 @@
           utm_term:        document.getElementById('hf-utm_term').value,
           gclid:           document.getElementById('hf-gclid').value,
           page_url:        document.getElementById('hf-page_url').value,
+          st:              document.getElementById('hf-st').value,
           website:         document.getElementById('lp-hp-field').value
         }).then(function (ok) {
           if (ok) {

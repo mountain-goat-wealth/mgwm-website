@@ -41,15 +41,16 @@
  */
 
 // ── CONFIG ──
-// fields: the keys accepted from the browser, in Sheet column order.
-// Anything not listed is ignored.
+// fields: the keys accepted from the browser, in Sheet column order for a new
+// tab. Anything not listed is ignored. Rows are written by header name, so a
+// field added later gets its own column appended to an existing tab.
 var FORMS = {
   roadmap: {
     groupId: 'REPLACE_ME', // MailerLite group: Retirement Roadmap
     sheet:   'Roadmap',
     fields:  ['name', 'email', 'phone', 'state', 'age_range', 'retire_timeline',
               'lead_source', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term',
-              'gclid', 'page_url']
+              'gclid', 'page_url', 'st']
   },
   assessment: {
     groupId: '188300274002036208', // MailerLite group: Retirement Self-Assessment
@@ -149,9 +150,19 @@ function appendRow_(formName, config, clean) {
       sheet.setFrozenRows(1);
       sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
     }
-    var values = [new Date(), formName].concat(config.fields.map(function (k) {
-      return sheetSafe_(clean[k]);
-    }), ['pending']);
+    // Match values to the tab's actual headers; append any missing ones.
+    var current = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    headers.forEach(function (h) {
+      if (current.indexOf(h) !== -1) return;
+      current.push(h);
+      sheet.getRange(1, current.length).setValue(h).setFontWeight('bold');
+    });
+    var record = { Timestamp: new Date(), Form: formName };
+    config.fields.forEach(function (k) { record[k] = sheetSafe_(clean[k]); });
+    record[STATUS_COL] = 'pending';
+    var values = current.map(function (h) {
+      return record.hasOwnProperty(h) ? record[h] : '';
+    });
     sheet.appendRow(values);
     var row = sheet.getLastRow(); // safe: we hold the lock
     SpreadsheetApp.flush();
@@ -188,6 +199,7 @@ function sendRoadmapAlert_(d) {
     'Age Range:        ' + d.age_range,
     'Retire Timeline:  ' + d.retire_timeline,
     'Lead Source:      ' + d.lead_source,
+    'Photo State (st): ' + d.st,
     '',
     'UTM Source:       ' + d.utm_source,
     'UTM Medium:       ' + d.utm_medium,
@@ -235,7 +247,7 @@ function testRoadmap() {
     form: 'roadmap', website: '',
     name: 'Test', email: 'test@example.com', phone: '(385) 555-0100',
     state: 'Utah', age_range: '50-59', retire_timeline: 'Within 5 years',
-    lead_source: 'test', page_url: 'apps-script-editor'
+    lead_source: 'test', st: 'none', page_url: 'apps-script-editor'
   }) } });
   console.log(res.getContent());
 }
