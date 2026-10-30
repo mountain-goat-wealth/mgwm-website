@@ -34,6 +34,7 @@ const SIZE_RULES = [
   { match: /^bobby-candid/i,       width: 800  }, // note-from-bobby section
   { match: /^bobby-wy/i,           width: 1200 }, // why-mountain-goat photo, ?st=wy (_image-originals/bobby/)
   { match: /^bobby-ut/i,           width: 1200 }, // why-mountain-goat photo, ?st=ut (_image-originals/bobby/)
+  { match: /^bobby-corner-canyon/i, width: 1200 }, // why-mountain-goat photo, ?st=ut (replaces bobby-ut)
   { match: /^bobby-tx/i,           width: 1200 }, // why-mountain-goat photo, ?st=tx (_image-originals/bobby/)
   { match: /^bobby-smiling/i,      width: 1000 }, // hero portrait (_image-originals/bobby/)
   { match: /^bobby-standing-far/i, width: 1000 }, // thank-you.html top portrait (_image-originals/bobby/)
